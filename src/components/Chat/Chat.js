@@ -147,7 +147,7 @@ export const Chat = () => {
           projectID={process.env.REACT_APP_PROJECT_ID}
           userName={convertedName}
           userSecret={userObject.uid}
-          height="70vh"
+          height="630px"
           renderChatList={(chatAppState) => { return <ChatList chatAppState={chatAppState}  />}}
           renderChatCard={(chat, index) => { return <ChatCard chat={chat} index={index} /> }}
           renderNewChatForm={(creds) => { return <NewChatForm creds={creds} /> }}
