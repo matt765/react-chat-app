@@ -25,13 +25,13 @@ export const AuthProvider = ({ children }) => {
                     lowerLetters(user.email.substring(0, user.email.lastIndexOf("@")))
                 );
                 setLoading(false);
-                history.push("/chat");
+                history.push("/react-chat-app");
             } else if (user && user.displayName !== null) {
                 // When logging with gmail/fb account
                 setUserObject(user);
                 setConvertedName(encodeURIComponent(lowerLetters(user.displayName)));
                 setLoading(false);
-                history.push("/chat");
+                history.push("/react-chat-app");
             } else {
                 setUserObject(null);
                 history.push("/login");
