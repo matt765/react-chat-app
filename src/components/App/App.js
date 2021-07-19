@@ -12,7 +12,7 @@ export const App = () => {
             <Router>
                 <AuthProvider>
                     <Switch>
-                        <Route exact path="/" component={Chat} />
+                        <Route exact path="/chat" component={Chat} />
                         <Route path="/login" component={Login} />
                         <Route path="/signup" component={Signup} />
                     </Switch>
