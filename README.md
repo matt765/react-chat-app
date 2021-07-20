@@ -3,13 +3,23 @@
 todo: 
 
 
-mobilne
-avatar mmój(?)
+
+
+
+logowanie google/fb
+tryb dzienny
+usuwanie przy ostatniej konwersacji
+profil ołówek
+responsywnosc login
+
+test account delete 
+sample account na wejsciu
+
 BLEDY
 
 
 
-blokada usuwania na test
+
 6. Testy(?)
 1. Readme
 7. Licencja GH

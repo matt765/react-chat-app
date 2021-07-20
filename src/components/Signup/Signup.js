@@ -88,7 +88,7 @@ export const Signup = () => {
 
                         <div className="auth-link-container already-account">
                             Already have an account?{" "}
-                            <span className="auth-link signup-text" onClick={() => history.push("login")}>
+                            <span className="auth-link signup-text" onClick={() => history.push("react-chat-app")}>
                                 Log In!
                             </span>
                         </div>

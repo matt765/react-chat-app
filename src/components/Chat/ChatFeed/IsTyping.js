@@ -29,8 +29,9 @@ const IsTyping = () => {
                                 key={`typer_${index}`} 
                                 style={{
                                      color: 'var(--paperclip-color)',
-                                      paddingLeft: '12px', 
-                                      position: 'absolute'
+                                      paddingLeft: '10px', 
+                                      position: 'relative'
+                                      
                                      
                                      
                                      

@@ -9,6 +9,8 @@ import PhotosSettings from "./ChatSettings/PhotosSettings";
 import axios from "axios";
 import NewChatForm from './ChatList/NewChatForm'
 import NewMessageForm from './ChatFeed/NewMessageForm/NewMessageForm'
+import MessageBubble from './ChatFeed/Bubble/MessageBubble'
+
 import ChatList from './ChatList/ChatList'
 
 export const Chat = () => {
@@ -16,12 +18,18 @@ export const Chat = () => {
   const [username, setUsername] = useState("");
   const [newChatError, setNewChatError] = useState("");
   const [newAccountStatus, setNewAccountStatus] = useState(false);
+  const [chatHeight, setChatHeight] = useState("630px");
 
   function lowerLetters(str) {
     return str.toLowerCase();
   }
 
 
+  useEffect (() => {
+    if (window.screen.width < 1150) {
+      setChatHeight("100vh")
+    }
+  }, [])
 
   useEffect(() => {
     // This hook creates new Chat Engine account if there is none
@@ -147,7 +155,7 @@ export const Chat = () => {
           projectID={process.env.REACT_APP_PROJECT_ID}
           userName={convertedName}
           userSecret={userObject.uid}
-          height="630px"
+          height={chatHeight}
           renderChatList={(chatAppState) => { return <ChatList chatAppState={chatAppState}  />}}
           renderChatCard={(chat, index) => { return <ChatCard chat={chat} index={index} /> }}
           renderNewChatForm={(creds) => { return <NewChatForm creds={creds} /> }}
@@ -161,6 +169,7 @@ export const Chat = () => {
 
           }}
           renderNewMessageForm={(creds, chatId) => {return <NewMessageForm  creds={creds} chatId={chatId} />}}
+          renderMessageBubble={(creds, chat, lastMessage, message, nextMessage) => {return <MessageBubble  creds={creds} chat={chat} lastMessage={lastMessage} message={message} nextMessage={nextMessage} />}}
         />
       ) : (
         ""

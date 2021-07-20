@@ -135,7 +135,7 @@ const ChatList = props => {
 
     useEffect(() => {
         if (!activeChat) {
-            activeKURWA()
+            activeConversation()
         }
     }, [chats])
 
@@ -146,7 +146,7 @@ const ChatList = props => {
             Object.values(chats) :
             [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
     )
-    function activeKURWA() {
+    function activeConversation() {
         if (chatList) {
             setActiveChat(chatList[0].id)
         }
@@ -165,14 +165,26 @@ const ChatList = props => {
                         <UserOutlined
                             onClick={
                                 () => {
-                                    if (editingProfile) {
+                                    if (editingProfile && (window.screen.availWidth > 1150)) {
+                                        console.log("11")
                                         setEditingProfile(!editingProfile)
                                         document.querySelector(".ce-chats-container").style.height = "530px"
                                     }
-                                    else {
+                                    else  if (!editingProfile && (window.screen.availWidth > 1150)) {
+                                        console.log("2221")
                                         setEditingProfile(!editingProfile)
                                         document.querySelector(".ce-chats-container").style.height = "425px"
                                     }
+                                    else if (editingProfile && (window.screen.availWidth <= 1150)) {
+                                        console.log("3331")
+                                        setEditingProfile(!editingProfile)
+                                        document.querySelector(".ce-chats-container").style.height = "calc(100vh - 76px)"
+                                    } else {
+                                        console.log("4441")
+                                        setEditingProfile(!editingProfile)
+                                        document.querySelector(".ce-chats-container").style.height = "calc(100vh - 166px)"
+                                    }
+
                                 }
                             }
 
@@ -252,7 +264,6 @@ const styles = {
     },
     chatsContainer: {
         width: '100%',
-        height: '530px',
         borderRadius: '0px 0px 24px 24px'
 
     },
