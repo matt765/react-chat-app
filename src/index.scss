@@ -139,12 +139,19 @@ input:focus {
   background: rgba(0, 0, 0, 0);
 }
 
+html *::-webkit-scrollbar {
+  display: none;
+}
+html {
+  scrollbar-width: none;
+}
 body,
 html {
   margin: 0;
   padding: 0;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
   box-sizing: border-box !important;
   -webkit-box-sizing: border-box !important;
   overflow: hidden !important;
@@ -412,13 +419,14 @@ html * {
 }
 
 .ce-chat-feed-container {
-  scrollbar-width: thin;
+  scrollbar-width: none;
   scrollbar-color: var(--scrollbar-color) rgba(255, 255, 255, 0);
   border-width: 0px !important;
   position: relative !important;
   margin-bottom: -30px !important;
   max-height: 97% !important;
 }
+
 
 .ce-feed-container-bottom {
   max-height: 70px !important;
