@@ -25,8 +25,7 @@
 /* Barlow Condensed, Indie Flower, Montserrat, Oswald, Raleway, Open Sans Condensed, Heebo */
 
 :root {
-  --micz:#080808;
-  --app-width:1090px;
+  --app-width:1085px;
   --left-rail-width:350px;
   --bar-width:60px;
   --chat-list-width:290px;
@@ -40,6 +39,11 @@
   --gradient-bg:linear-gradient(150deg, rgba(217, 219, 226, 1) 0%, rgb(128, 138, 172) 100%, rgba(40, 45, 57, 1) 100%);
   --own-msg-color:#726DFE;
   --active-bg:#726DFE;
+  --active-title: white;
+  --active-subtitle: rgb(224, 222, 222);
+  --active-time: rgb(231, 230, 230);
+  --active-hover: #726DFE;
+  --card-hover: #454D61;
   --chat-bar-bg:#353B4C;
   --loginform-color:#f6f6f6;
   --login-hover:#9a97fc;
@@ -60,10 +64,9 @@
   --header-border:1px;
 }
 
-.dark {
+.light {
   /*.light-mode { */
-  --micz:#272d3b;
-  --app-width:1090px;
+  --app-width:1085px;
   --left-rail-width:350px;
   --bar-width:60px;
   --chat-list-width:290px;
@@ -71,29 +74,34 @@
   --right-rail-width:10px;
   --bg-color:#FFFFFF;
   --icons-color:white;
-  --active-bg:#726DFE;
-  --gradient-bg:linear-gradient(150deg, rgba(217, 219, 226, 1) 0%, rgb(240, 240, 243) 100%, rgba(40, 45, 57, 1) 100%);
+  --active-bg:#a9a7aa42;
+  --active-title: rgba(0, 0, 0, 0.828);
+  --active-subtitle: rgba(71, 70, 70, 0.664);
+  --active-time: rgba(71, 70, 70, 0.664);
+  --active-hover: #d8d7f686;
+  --card-hover:#d8d7f686;
+  --gradient-bg:linear-gradient(150deg, rgba(217, 219, 226, 1) 0%, rgb(198, 198, 228) 100%, rgba(40, 45, 57, 1) 100%);
   --app-bg-color:#f0efef;
-  --own-msg-color:#726DFE;
+  --own-msg-color:#4546A5;
   --card-text-color:rgba(0, 0, 0, 0.733) !important;
-  --chat-bar-bg:#726DFE;
+  --chat-bar-bg:#4546A5;
   --loginform-color:#f6f6f6;
   --login-hover:#9a97fc;
   --paperclip-color:#9a97fc;
-  --their-msg-color:#d8d7f6d8;
+  --their-msg-color:#a9a7aa42;
   --their-message-text-color:#202020b6;
   --new-chat-input:rgba(211, 216, 230, 0.247);
   --scrollbar-color:#726dfe1e;
-  --border-color:#726dfe42;
+  --border-color:#8c8c8f42;
   --gray-text:rgba(71, 70, 70, 0.664);
   --add-chat-icon:rgba(197, 190, 190, 0.616);
   --bg-input:#F6F6F6;
   --title-font:Quicksand;
-  --title-color:rgba(0, 0, 0, 0.691);
+  --title-color:rgba(0, 0, 0, 0.698);
   --message-text-color:rgba(255, 255, 255, 0.877);
-  --box-shadow:rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  --box-shadow:rgba(0, 0, 0, 0) 0px 3px 8px;
   --card-shadow:rgba(99, 99, 99, 0.05) 0px 2px 8px 0px;
-  --header-border:0px;
+  --header-border:1px;
 }
 
 input {
@@ -339,8 +347,8 @@ html * {
   width: var(--app-width) !important;
   padding-right: 0px !important;
   border-style: solid;
-  border-width: 0px !important;
-  border-color: black;
+  border-width: 1px !important;
+  border-color: #4547a53f;
   display: flex !important;
   justify-content: flex-start !important;
   background-color: var(--app-bg-color) !important;
@@ -473,6 +481,7 @@ html * {
   word-wrap: break-word;
   background-color: var(--their-msg-color) !important;
   color: var(--their-message-text-color) !important;
+  
 }
 
 .ce-my-message-bubble {
@@ -491,7 +500,8 @@ html * {
   margin: auto;
   margin-bottom: 20px !important;
   display: flex !important;
-
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  
   &:focus {
     background-color: #5e6475 !important;
   }
@@ -756,7 +766,7 @@ div.ce-avatar-dot:nth-child(1) {
     padding: 10px !important;
     color: var(--gray-text) !important;
     margin: 0px 0px 0px 10px !important;
-
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     &:focus {
       background-color: #5e64759f !important;
       border-width: 0 !important;
@@ -811,12 +821,12 @@ div.ce-avatar-dot:nth-child(1) {
   box-shadow: var(--card-shadow) !important;
 
   &:hover {
-    background-color: var(--their-msg-color) !important;
+    background-color: var(--card-hover) !important;
   }
 }
 
 .ce-active-chat-card:hover {
-  background-color: var(--own-msg-color) !important;
+  background-color: var(--active-hover) !important;
 }
 
 .ce-chats-container > div > span:nth-child(1) {
@@ -835,14 +845,14 @@ div.ce-avatar-dot:nth-child(1) {
 .ce-active-chat-card {
   background-color: var(--active-bg) !important;
   margin-top: 10 !important;
-  color: white !important;
+  color: var(--active-title) !important;
 
   .ce-chat-subtitle-text {
-    color: rgb(224, 222, 222) !important;
+    color: var(--active-subtitle) !important;
   }
 
   .chat-card-activity-time {
-    color: rgb(231, 230, 230) !important;
+    color: var(--active-time) !important;
   }
 }
 

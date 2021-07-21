@@ -193,7 +193,7 @@ const ChatList = props => {
                     </div>
                     <div className="chat-bar-option">
                     <BgColorsOutlined onClick={() => {
-                        document.querySelector(".app").classList.toggle("dark")
+                        document.querySelector(".app").classList.toggle("light")
                     }}/>
                     </div>
                     <div className="chat-bar-option">
