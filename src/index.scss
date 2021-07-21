@@ -470,6 +470,7 @@ html * {
 
 .ce-chat-title img {
   height: 42px !important;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .ce-message-bubble {
@@ -1224,13 +1225,16 @@ canvas {
     --right-rail-width:10px;
     --margin-top: 3em;
   }
+  .auth-form {
+    margin-top: 9em !important;
+  }
 }
 @media only screen and (max-width: 1400px) {
   :root {
  
-    --margin-top: 3em;
+    --margin-top: 8em;
   }
-  
+ 
   
 }
 @media only screen and (max-width: 1150px) {
@@ -1292,4 +1296,36 @@ canvas {
   margin: auto !important;
  
 }
+}
+@media only screen and (max-width: 500px) {
+.auth-form {
+  border-radius: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  margin: auto !important;
+  
+}
+.logo {
+  margin-top: 0 !important;
+  padding-top: 2em !important;
+}
+.login-fields {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+.auth-link-container {
+  padding-left: 20px !important;
+}
+.auth-form button {
+  width: 90% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+ }
+ .auth-form form {
+  display: flex !important;
+  justify-content: center !important;
+  flex-direction: column;
+ }
 }
