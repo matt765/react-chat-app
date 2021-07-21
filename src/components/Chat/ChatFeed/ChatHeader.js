@@ -4,6 +4,7 @@ import ChatListDrawer from "./ChatListDrawer";
 import { Row, Col } from "react-grid-system";
 import { setConfiguration } from "react-grid-system";
 import empty from "../../../images/empty.png";
+import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
 
 setConfiguration({ maxScreenClass: "xl", gutterWidth: 0 });
 
@@ -29,47 +30,47 @@ export const ChatHeader = (props) => {
     const otherPerson = chat.people.find(
         (person) => person.person.username !== conn.userName
     );
-    
+
     const userStatus = (otherPerson) ? otherPerson.person.first_name : ""
- 
+
     const title = otherPerson
         ? capitalize(decodeURIComponent(otherPerson.person.username))
         : "";
 
-        function getDateTime(date) {
-            if (!date) return ''
-            
-            date = date.replace(' ', 'T')
-         
-        
-            const year = date.substr(0,4)
-            const month = date.substr(5,2)
-            const day = date.substr(8,2)
-            const hour = date.substr(11,2)
-            const minute = date.substr(14,2)
-            const second = date.substr(17,2)
-            
-            var d = new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}`)
-            console.log(d)
-            let offset = (-(d.getTimezoneOffset())/60)
-            console.log(offset)
-    
-            d.setHours(d.getHours() + offset)
-            return d
-        }
+    function getDateTime(date) {
+        if (!date) return ''
+
+        date = date.replace(' ', 'T')
+
+
+        const year = date.substr(0, 4)
+        const month = date.substr(5, 2)
+        const day = date.substr(8, 2)
+        const hour = date.substr(11, 2)
+        const minute = date.substr(14, 2)
+        const second = date.substr(17, 2)
+
+        var d = new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}`)
+        console.log(d)
+        let offset = (-(d.getTimezoneOffset()) / 60)
+        console.log(offset)
+
+        d.setHours(d.getHours() + offset)
+        return d
+    }
 
     function timeSinceDate(date) {
         if (!date) return ''
 
 
         let convertedDate = getDateTime(date)
-      
-   
-        
-  
 
-       
-        
+
+
+
+
+
+
         let sent = convertedDate.toString()
 
         const dayStr = sent.substr(0, 10)
@@ -77,17 +78,18 @@ export const ChatHeader = (props) => {
         return `${dayStr} at ${timeStr}`
     }
 
-    
+
     return (
         <Row className="ce-chat-title" style={styles.titleSection}>
-            <Col
-                xs={2}
-                sm={0}
-                style={{ ...styles.mobileOptiom, ...{ left: "6px" } }}
-                className="ce-chat-list-mobile-option"
-            >
-                <ChatListDrawer chat={props.chat} creds={props.creds} conn={conn} />
-            </Col>
+
+            <div className="mobile-toggler">
+                <MenuOutlined 
+                onClick={() => {
+    document.querySelector(".chat-container").children[0].children[1].children[0].style.display = "block";
+    document.querySelector(".chat-container").children[0].children[1].children[1].style.display = "none";
+                }}
+                 />
+            </div>
 
             <Col
                 xs={8}
@@ -95,7 +97,7 @@ export const ChatHeader = (props) => {
                 style={styles.titleContainer}
                 className="ce-chat-title-container"
             >
-        
+
                 {otherPerson && otherPerson.person.avatar ? (
                     <img
                         src={otherPerson.person.avatar}
@@ -118,12 +120,12 @@ export const ChatHeader = (props) => {
                     </div>
 
                     <div style={styles.subtitleText} className="ce-chat-subtitle-text">
-                   
-                    {userStatus ? userStatus : (
-                        chat.last_message.created && chat.last_message.created.length > 0 ?
-                        `Active ${timeSinceDate(chat.last_message.created)}` :
-                        'Say hello!'
-                    ) }
+
+                        {userStatus ? userStatus : (
+                            chat.last_message.created && chat.last_message.created.length > 0 ?
+                                `Active ${timeSinceDate(chat.last_message.created)}` :
+                                'Say hello!'
+                        )}
                     </div>
                 </div>
             </Col>

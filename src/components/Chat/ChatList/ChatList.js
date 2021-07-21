@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 
 import { ChatEngineContext, getLatestChats, getChatsBefore } from 'react-chat-engine'
 import { ChatProfile } from "./ChatProfile";
-import { BgColorsOutlined, CommentOutlined, LeftOutlined, DownOutlined, UserOutlined, DeleteOutlined, LogoutOutlined, EditOutlined } from "@ant-design/icons";
+import { CloseOutlined, BgColorsOutlined, CommentOutlined, LeftOutlined, DownOutlined, UserOutlined, DeleteOutlined, LogoutOutlined, EditOutlined } from "@ant-design/icons";
 import { fb } from "service";
 import _ from 'lodash'
 import loadingAnimation from "../../../images/loading.svg";
@@ -22,7 +22,7 @@ const ChatList = props => {
     const [editingProfile, setEditingProfile] = useState(false)
     const { conn, chats, setChats, setActiveChat, activeChat } = useContext(ChatEngineContext)
     const chat = chats && chats[activeChat];
-   
+
     const [chatsHeight, setChatsHeight] = useState("440px")
 
     const name = props.chatAppState.userName
@@ -30,7 +30,7 @@ const ChatList = props => {
 
     function deleteActiveChat(chatID) {
         var myHeaders = new Headers();
-       
+
         let otherPerson = chat.people.find(
             (person) => person.person.username !== name
         )
@@ -157,8 +157,18 @@ const ChatList = props => {
         <div className="chat-left-wing">
             <div className="chat-bar">
                 <div className="chat-bar-logo">
-              <img src={chatLogo} alt="" />
-                
+                    {(window.screen.availWidth > 700) ?
+                        <img src={chatLogo} alt="" /> :
+                        <div className="mobile-toggler">
+                        <CloseOutlined
+                            onClick={() => {
+                                document.querySelector(".chat-container").children[0].children[1].children[0].style.display = "none";
+                                document.querySelector(".chat-container").children[0].children[1].children[1].style.display = "block";
+                            }}
+                        />
+                        </div>
+                    }
+
                 </div>
                 <div className="chat-bar-options">
                     <div className="chat-bar-option">
@@ -170,7 +180,7 @@ const ChatList = props => {
                                         setEditingProfile(!editingProfile)
                                         document.querySelector(".ce-chats-container").style.height = "530px"
                                     }
-                                    else  if (!editingProfile && (window.screen.availWidth > 1150)) {
+                                    else if (!editingProfile && (window.screen.availWidth > 1150)) {
                                         console.log("2221")
                                         setEditingProfile(!editingProfile)
                                         document.querySelector(".ce-chats-container").style.height = "425px"
@@ -192,9 +202,9 @@ const ChatList = props => {
                         />
                     </div>
                     <div className="chat-bar-option">
-                    <BgColorsOutlined onClick={() => {
-                        document.querySelector(".app").classList.toggle("light")
-                    }}/>
+                        <BgColorsOutlined onClick={() => {
+                            document.querySelector(".app").classList.toggle("light")
+                        }} />
                     </div>
                     <div className="chat-bar-option">
                         <DeleteOutlined onClick={() => {
@@ -216,7 +226,7 @@ const ChatList = props => {
 
 
                     }} /></div>
-                  
+
                 </div>
 
             </div>
