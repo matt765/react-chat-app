@@ -6,12 +6,11 @@ todo:
 
 
 
-logowanie google/fb
+
 tryb dzienny
-usuwanie przy ostatniej konwersacji
-profil ołówek
 responsywnosc login
 
+logowanie fb
 test account delete 
 sample account na wejsciu
 

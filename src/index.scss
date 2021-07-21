@@ -695,7 +695,21 @@ div.ce-avatar-dot:nth-child(1) {
   width: var(--chat-list-width) !important;
   overflow: hidden !important;
 }
-
+.chat-list-user-status {
+  display: flex !important;
+ 
+  word-wrap: normal !important;
+  flex-wrap: wrap !important;
+}
+.chat-list-user-status svg {
+  color: var(--paperclip-color) !important;
+  
+  font-size: 15px !important;
+}
+.chat-list-user-status svg:hover {
+  color: #b8b6f6 !important;
+  
+}
 .chat-left-wing {
   padding-bottom: 20px !important;
 }
@@ -974,6 +988,7 @@ div.ce-avatar-dot:nth-child(1) {
 .user-status {
   color: var(--gray-text) !important;
   font-size: 15px !important;
+  margin-right: 5px !important;
 }
 
 .current-user-info {
@@ -1009,7 +1024,7 @@ div.ce-avatar-dot:nth-child(1) {
 
 canvas {
   background-color: rgba(255, 255, 255, 0.1) !important;
-  margin-top: 20px !important;
+  
 }
 
 .chat-new-avatar {
@@ -1053,6 +1068,7 @@ canvas {
 .newChatError {
   color: rgb(245, 71, 71) !important;
   padding-left: 20px !important;
+  margin-top: -10px !important;
 }
 
 .anticon-down {
@@ -1088,7 +1104,7 @@ canvas {
   cursor: pointer;
   margin-top: 20px !important;
   margin-bottom: 20px !important;
-  display: none !important;
+   display: none !important; 
 }
 
 .chat-bar-options {
@@ -1115,10 +1131,11 @@ canvas {
   background-color: var(--their-msg-color) !important;
   border-width: 0 !important;
   border-radius: 20px !important;
-  padding: 10px !important;
-  margin: 10px !important;
+  padding: 3px !important;
+  margin: 2px !important;
   color: var(--gray-text) !important;
   max-width: 100% !important;
+  padding-left: 5px !important;
 }
 
 .chat-bar-options {

@@ -84,7 +84,7 @@ const NewChatForm = (props) => {
           placeholder="Add new chat"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-        
+          required
         />
         
       <PlusOutlined  onClick={() => {

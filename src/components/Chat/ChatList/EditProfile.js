@@ -4,34 +4,34 @@ import { useEffect, useRef, useState } from "react";
 import { ChatEngineContext } from "react-chat-engine";
 import React, { useContext } from "react";
 
-export const EditProfile = ({ username, userstatus, close, onSubmit }) => {
+export const EditProfile = ({ userstatus, close, onSubmit }) => {
 
-  const [newUsername, setNewUsername] = useState(username);
+
   const [newStatus, setNewStatus] = useState(userstatus);
 
-return (
+  return (
 
     <div className="edit-profile">
-      
-   
-    <div className="edit-name-input">
-  <input
+
+<form>
+      <div className="edit-name-input">
+        <input
           placeholder="New status"
           value={newStatus}
-   onChange={(e) => setNewStatus(e.target.value)}
-
+          onChange={(e) => setNewStatus(e.target.value)}
+          maxLength="20"
         />
-     </div>
+      </div>
 
 
-    
+
       <div className="image-upload-actions">
-       
+
         <button
           className="submit"
           onClick={() => {
             if (true) {
-                onSubmit( newUsername, newStatus);
+              onSubmit(newStatus);
             } else {
               onSubmit();
             }
@@ -39,11 +39,11 @@ return (
         >
           Upload
         </button>
-         <button className="cancel" onClick={close}>
+        <button className="cancel" onClick={close}>
           Cancel
         </button>
       </div>
-
+</form>
     </div>
   );
 };

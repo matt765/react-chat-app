@@ -147,7 +147,7 @@ const ChatList = props => {
             [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
     )
     function activeConversation() {
-        if (chatList) {
+        if (chatList[0]) {
             setActiveChat(chatList[0].id)
         }
 

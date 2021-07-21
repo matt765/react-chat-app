@@ -10,7 +10,7 @@ export const App = () => {
     const [mainComponent, setMainComponent] = useState("login")
 
     useEffect(() => {
-        // This hook needs to be here because  GH Pages doesn't allow subdirectories, making app unable to refresh on subdomain
+        // This hook needs to be here because  GH Pages doesn't allow subdirectories in default, making app unable to refresh on subdomain
         
         fb.auth.onAuthStateChanged((user) => {
             if (user && user.displayName == null) {

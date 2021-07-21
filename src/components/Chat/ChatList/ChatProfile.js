@@ -3,6 +3,7 @@ import { useAuth } from "context/AuthContext.js";
 import { Icon, IconGroup, Loader } from "semantic-ui-react";
 import { ChatAvatar } from "./ChatAvatar";
 import { EditProfile } from "./EditProfile";
+import { UserStatus } from "./UserStatus";
 import empty from "../../../images/empty.png";
 import { LeftOutlined, DownOutlined, UserOutlined, DeleteOutlined, LogoutOutlined, EditOutlined } from "@ant-design/icons";
 import { fb } from "service";
@@ -11,10 +12,11 @@ import loadingAnimation from "../../../images/loading.svg";
 export const ChatProfile = (props) => {
   const { userObject, convertedName } = useAuth();
   const [avatarURL, setAvatarURL] = useState();
-  const [userStatus, setUserStatus] = useState("");
+  const [userStatus, setUserStatus] = useState();
   const inputRef = useRef(null);
   const [image, setImage] = useState();
   const [avatarState, setAvatarState] = useState(false);
+  const [statusState, setStatusState] = useState(false);
   const [avatarVisibility, setAvatarVisibility] = useState(true);
   const [editing, setEditing] = useState(false);
 
@@ -133,10 +135,11 @@ export const ChatProfile = (props) => {
     fetch("https://api.chatengine.io/users/me/", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-
+        setUserStatus(result.first_name)
         setAvatarURL(result.avatar);
         setAvatarState(true);
-        setUserStatus(result.first_name)
+        setStatusState(true)
+
       });
   }, [avatarState]);
 
@@ -206,7 +209,7 @@ export const ChatProfile = (props) => {
                 )}
               </>
             ) : (
-            <img src={loadingAnimation} alt=""  />
+              <img src={loadingAnimation} alt="" />
             )}
 
             <Icon corner name="camera" inverted circular />
@@ -219,6 +222,8 @@ export const ChatProfile = (props) => {
           <Loader active size="small" />
         </div>
       )}
+
+      {!image ?
       <div className="chat-profile-info">
         <div className="current-username">
           <div className="username-border">
@@ -227,58 +232,12 @@ export const ChatProfile = (props) => {
 
         </div>
 
-        <div className="options-icons-container">
+        {statusState ?
+          <UserStatus userStatus={userStatus} /> : ""}
 
-          {editing ?
-            <EditProfile
-              username={props.conn.userName}
-              userstatus={userStatus}
-              close={() => {
-                setEditing(false)
-
-              }}
-              onSubmit={(newUsername, newStatus) => {
-                updateProfile(newUsername, newStatus)
-                setEditing(false)
-              }}
-            />
-            :
-            <>
-              {userStatus ?
-                <div className="user-status">
-                  {userStatus} </div>
-
-                : <div className="user-status">
-                  - </div>
-
-
-
-              }</>}
-
-          <div className="options-icons">
-            <EditOutlined onClick={() => setEditing(true)} />
-            <DeleteOutlined onClick={() => {
-              if (window.confirm("Press OK if you want to delete active chat. Conversation with this person will be lost")) {
-                deleteActiveChat(chat.id)
-
-              }
-
-
-
-            }} />
-            <LogoutOutlined onClick={() => {
-              if (window.confirm("Press OK if you want to logout")) {
-                fb.auth.signOut().then(console.log("logged out"))
-
-              }
-
-
-
-            }} />
-          </div>
-
-        </div>
       </div>
+          : ""}
+
     </div>
   );
 };
