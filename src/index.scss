@@ -1309,9 +1309,7 @@ canvas {
   }
 }
 @media only screen and (max-width: 700px) {
-  html {
-    margin-bottom: 2em !important;
-  }
+  
   .ce-chat-list > div:nth-child(1) {
     overflow: hidden !important;
   }
@@ -1323,12 +1321,17 @@ canvas {
     scrollbar-width: none !important;
    
   }
-  .ce-chat-feed::-webkit-scrollbar {
-    display: none;
-  }
   .ce-chat-feed-container {
     scrollbar-width: none !important;
   }
+  .ce-chat-feed::-webkit-scrollbar {
+    display: none;
+  }
+  .ce-chat-feed-container ::-webkit-scrollbar {
+    display: none;
+  }
+ 
+
   .ce-chats-container {
     scrollbar-width: none !important;
 
