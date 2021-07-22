@@ -35,7 +35,7 @@
   --mobile-toggler: rgba(255, 255, 255, 0.685);
   --bg-color: #d3d8e4de;
   --app-bg-color: #353b4c;
-  --feed-header-bg: #353b4c;
+  --feed-header-bg: #726dfe;
   --icons-color: #f8eded73;
   --card-text-color: white;
   --new-chat-focus: #5e64759f;
@@ -80,7 +80,7 @@
   --chat-list-width: 290px;
   --chat-feed-width: 720px;
   --right-rail-width: 10px;
-  --mobile-toggler: #A7B0CD;
+  --mobile-toggler: #e8eaf3;
   --bg-color: #ffffff;
   --icons-color: white;
   --active-bg: #a9a7aa42;
@@ -96,14 +96,14 @@
     rgba(40, 45, 57, 1) 100%
   );
   --app-bg-color: #f8f7f7;
-  --feed-header-bg: #fafafa;
+  --feed-header-bg: #6A89F3;
   --own-msg-color: #6A89F3;
   --card-text-color: rgba(0, 0, 0, 0.733) !important;
   --new-chat-focus: #5e647521;
   --chat-bar-bg: #6A89F3;
   --loginform-color: #f6f6f6;
   --login-hover: #9a97fc;
-  --paperclip-color: #9a97fc;
+  --paperclip-color: #809cf6;
   --their-msg-color: white;
   --their-message-text-color: #202020b6;
   --new-chat-input: rgba(211, 216, 230, 0.247);
@@ -1330,8 +1330,21 @@ canvas {
   .ce-message-form {
     margin: auto !important;
   }
+  .chat-container > div:nth-child(1) > div:nth-child(2) > div:nth-child(3)  {
+    display: none !important;
+    width: 0 !important;
+  }
 }
 @media only screen and (max-width: 700px) {
+  .ce-my-message-bubble {
+    margin-right: 5px !important;
+}
+  .light .ce-chat-header-container .ce-chat-title-text {
+    color: white !important;
+  }
+  .light  .ce-chat-header-container > div:nth-child(2) {
+    color: rgb(238, 235, 235) !important;
+  }
   .ce-their-message-bubble {
     border-width: 1px !important;
     border-style: solid !important;
