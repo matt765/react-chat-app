@@ -1342,6 +1342,10 @@ canvas {
   }
 }
 @media only screen and (max-width: 700px) {
+  :root {
+  --app-bg-color: #42495c;
+  --feed-header-bg: #454d61;
+  }
   .chat-container > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
     max-width: none !important;
     width: auto !important;
