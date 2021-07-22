@@ -35,7 +35,7 @@
   --mobile-toggler: rgba(255, 255, 255, 0.685);
   --bg-color: #d3d8e4de;
   --app-bg-color: #353b4c;
-  --feed-header-bg: #726dfe;
+  --feed-header-bg: #454d61;
   --icons-color: #f8eded73;
   --card-text-color: white;
   --new-chat-focus: #5e64759f;
@@ -87,8 +87,8 @@
   --active-title: rgba(0, 0, 0, 0.828);
   --active-subtitle: rgba(71, 70, 70, 0.664);
   --active-time: rgba(71, 70, 70, 0.664);
-  --active-hover: #d8d7f686;
-  --card-hover: #d8d7f686;
+  --active-hover: #c0ccf5;
+  --card-hover: #c0ccf5;
   --gradient-bg: linear-gradient(
     150deg,
     rgba(217, 219, 226, 1) 0%,
@@ -570,6 +570,12 @@ min-width: 40px !important;
 min-height: 40px !important;
   &:hover {
     background-color: #7f7bfa !important;
+  }
+}
+.light #ce-send-message-button {
+
+  &:hover {
+    background-color: #859ff3 !important;
   }
 }
 
@@ -1274,7 +1280,7 @@ canvas {
 }
 @media only screen and (max-width: 1400px) {
   :root {
-    --margin-top: 8em;
+    --margin-top: 3em;
   }
 }
 @media only screen and (max-width: 1150px) {
@@ -1336,6 +1342,14 @@ canvas {
   }
 }
 @media only screen and (max-width: 700px) {
+  .chat-container > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
+    max-width: none !important;
+    width: auto !important;
+    border-width: 0 !important;
+    border-color: var(--border-color) !important;
+    border-style: solid !important;
+    flex: auto !important;
+  }
   .ce-my-message-bubble {
     margin-right: 5px !important;
 }
@@ -1370,7 +1384,7 @@ canvas {
   }
   .ce-chat-feed {
     scrollbar-width: none !important;
-   
+   width: 100% !important;
   }
   .ce-chat-feed-container {
     scrollbar-width: none !important;

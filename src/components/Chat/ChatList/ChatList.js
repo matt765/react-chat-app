@@ -7,6 +7,7 @@ import { fb } from "service";
 import _ from 'lodash'
 import loadingAnimation from "../../../images/loading.svg";
 import chatLogo from "../../../images/chatlogo.png";
+import chatLogoWhite from "../../../images/chatlogowhite.png";
 import ChatLoader from '../ChatLoader'
 import NewChatForm from './NewChatForm'
 import ChatCard from './ChatCard'
@@ -20,6 +21,7 @@ const ChatList = props => {
     const [loadChats, setLoadChats] = useState(false)
     const [hasMoreChats, setHasMoreChats] = useState(true)
     const [editingProfile, setEditingProfile] = useState(false)
+    const [logoSource, setLogoSource] = useState(chatLogo);
     const { conn, chats, setChats, setActiveChat, activeChat } = useContext(ChatEngineContext)
     const chat = chats && chats[activeChat];
 
@@ -158,7 +160,7 @@ const ChatList = props => {
             <div className="chat-bar">
                 <div className="chat-bar-logo">
                     {(window.screen.availWidth > 700) ?
-                        <img src={chatLogo} alt="" /> :
+                        <img src={logoSource} alt="" /> :
                         <div className="mobile-toggler">
                         <CloseOutlined
                             onClick={() => {
@@ -203,7 +205,9 @@ const ChatList = props => {
                     </div>
                     <div className="chat-bar-option">
                         <BgColorsOutlined onClick={() => {
-                            document.querySelector(".app").classList.toggle("light")
+                            document.querySelector(".app").classList.toggle("light");
+                            (logoSource == chatLogo) ? setLogoSource(chatLogoWhite) : setLogoSource(chatLogo)
+                      
                         }} />
                     </div>
                     <div className="chat-bar-option">
@@ -220,6 +224,7 @@ const ChatList = props => {
                     <div className="chat-bar-option"> <LogoutOutlined onClick={() => {
                         if (window.confirm("Press OK if you want to logout")) {
                             fb.auth.signOut().then(console.log("logged out"))
+                            document.querySelector(".app").classList.toggle("light");
 
                         }
 
