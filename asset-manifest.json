@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/react-chat-app/static/css/main.50d184b0.chunk.css",
-    "main.js": "/react-chat-app/static/js/main.d5927361.chunk.js",
-    "main.js.map": "/react-chat-app/static/js/main.d5927361.chunk.js.map",
+    "main.css": "/react-chat-app/static/css/main.055ecee5.chunk.css",
+    "main.js": "/react-chat-app/static/js/main.dbed1b2e.chunk.js",
+    "main.js.map": "/react-chat-app/static/js/main.dbed1b2e.chunk.js.map",
     "runtime-main.js": "/react-chat-app/static/js/runtime-main.831c267c.js",
     "runtime-main.js.map": "/react-chat-app/static/js/runtime-main.831c267c.js.map",
     "static/css/2.a2032d84.chunk.css": "/react-chat-app/static/css/2.a2032d84.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.8acfe72d.chunk.js.map": "/react-chat-app/static/js/2.8acfe72d.chunk.js.map",
     "index.html": "/react-chat-app/index.html",
     "static/css/2.a2032d84.chunk.css.map": "/react-chat-app/static/css/2.a2032d84.chunk.css.map",
-    "static/css/main.50d184b0.chunk.css.map": "/react-chat-app/static/css/main.50d184b0.chunk.css.map",
+    "static/css/main.055ecee5.chunk.css.map": "/react-chat-app/static/css/main.055ecee5.chunk.css.map",
     "static/js/2.8acfe72d.chunk.js.LICENSE.txt": "/react-chat-app/static/js/2.8acfe72d.chunk.js.LICENSE.txt",
     "static/media/loading.1faeadb0.svg": "/react-chat-app/static/media/loading.1faeadb0.svg"
   },
@@ -18,7 +18,7 @@
     "static/js/runtime-main.831c267c.js",
     "static/css/2.a2032d84.chunk.css",
     "static/js/2.8acfe72d.chunk.js",
-    "static/css/main.50d184b0.chunk.css",
-    "static/js/main.d5927361.chunk.js"
+    "static/css/main.055ecee5.chunk.css",
+    "static/js/main.dbed1b2e.chunk.js"
   ]
 }
