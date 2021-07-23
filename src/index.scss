@@ -1343,8 +1343,11 @@ canvas {
 }
 @media only screen and (max-width: 700px) {
   :root {
-  --app-bg-color: #42495c;
-  --feed-header-bg: #454d61;
+    --bg-color: #d3d8e4de;
+    --app-bg-color: #454d61;
+    --feed-header-bg: #3d4457;
+    --their-msg-color: #42495d;
+    --bg-input: #40475a;
   }
   .chat-container > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
     max-width: none !important;

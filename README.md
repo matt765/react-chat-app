@@ -10,7 +10,7 @@ dlugie nicki
 tryb dzienny
 profil poprawka
 responsywnosc przelaczanie
-responsywnosc login
+
 
 logowanie fb
 test account delete 
