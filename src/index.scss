@@ -12,7 +12,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@700&display=swap');
 
@@ -188,7 +188,9 @@ html * {
 .app {
   height: 100% !important;
 }
-
+img {
+  color:rgba(255, 255, 255, 0)
+}
 .chat-container {
   height: 100% !important;
   background: rgb(222, 217, 226);
@@ -392,7 +394,7 @@ html * {
 }
 
 .chat-settings-box {
-  width: 15px !important;
+  width: 16px !important;
   min-width: 15x !important;
   height: 78px !important;
   border-style: solid !important;
@@ -464,10 +466,14 @@ html * {
   display: flex !important;
   margin-left: 20px !important;
   z-index: 100 !important;
+  border-color: var(--border-color);
+border-style: solid !important;
+border-bottom-width: var(--header-border) !important;
+border-width: 0 0 0 0 !important;
 }
 
 .ce-chat-header-container {
-  margin-left: 15px !important;
+  margin-left: 20px !important;
 }
 .mobile-toggler {
   display: none !important;
@@ -477,7 +483,7 @@ html * {
   border-width: 0 0 1px 0 !important;
   border-color: var(--border-color);
   border-style: solid !important;
-  border-bottom-width: var(--header-border) !important;
+ 
 
   > img:nth-child(2) {
     width: 50px !important;
@@ -508,6 +514,7 @@ html * {
 .ce-chat-title img {
   height: 42px !important;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-left: 10px !important;
 }
 
 .ce-message-bubble {
@@ -552,9 +559,23 @@ html * {
   font-family: Quicksand !important;
   line-break: auto !important;
   max-height: 29px !important;
-  width: auto !important;
+  width: 80% !important;
+  max-width: 80% !important;
 }
-
+@media only screen and (max-width: 900px) {
+  #msg-textarea {
+   
+    width: 68% !important;
+    max-width: 68% !important;
+  }
+}
+@media only screen and (max-width: 400px) {
+  #msg-textarea {
+   
+    width: 60% !important;
+    max-width: 60% !important;
+  }
+}
 #ce-send-message-button {
   margin-left: 15px !important;
   width: 40px !important;
@@ -679,7 +700,7 @@ div.ce-avatar-dot:nth-child(1) {
 }
 
 .chat-profile-container {
-  border-width: 0 1px 0 0 !important;
+  border-width: 0  !important;
   border-style: solid !important;
   border-color: var(--border-color) !important;
 }
@@ -925,9 +946,9 @@ div.ce-avatar-dot:nth-child(1) {
 }
 
 .chat-card-info {
-  max-width: 130px !important;
-  width: 130px !important;
-  padding-right: 5px !important;
+  max-width: 140px !important;
+  width: 140px !important;
+  padding-right: 0px !important;
 
   > div {
     &:nth-child(1) {
@@ -1028,7 +1049,7 @@ div.ce-avatar-dot:nth-child(1) {
   /* Barlow Condensed, Indie Flower, Montserrat, Oswald, Raleway, Open Sans Condensed, Heebo */
 
   font-size: 20px !important;
-  font-weight: 500 !important;
+  font-weight: 700 !important;
   display: inline !important;
   margin: auto !important;
   margin: 0 !important;
@@ -1065,7 +1086,8 @@ div.ce-avatar-dot:nth-child(1) {
 .current-user-info {
   display: flex !important;
   flex-direction: column !important;
-
+align-items: center !important;
+justify-content: center !important;
   i img {
     cursor: pointer !important;
     transition: 0.2s !important;
@@ -1092,7 +1114,9 @@ div.ce-avatar-dot:nth-child(1) {
     cursor: pointer !important;
   }
 }
-
+.light .image-upload-actions button {
+  color: white !important;
+}
 canvas {
   background-color: rgba(255, 255, 255, 0.1) !important;
 }
@@ -1210,8 +1234,17 @@ canvas {
   padding: 3px !important;
   margin: 2px !important;
   color: var(--gray-text) !important;
-  max-width: 100% !important;
+  max-width: 90% !important;
   padding-left: 5px !important;
+}
+.edit-profile {
+  max-width: 90% !important;
+}
+.chat-list-user-status .anticon-close {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  margin-left: -5px !important;
 }
 
 .chat-bar-options {
@@ -1504,6 +1537,10 @@ canvas {
   }
 }
 @media only screen and (max-width: 600px) {
+  .user-avatar {
+    
+    margin-left: 10px !important;
+}
   .chat-left-wing {
     width: 90% !important;
   }
@@ -1517,7 +1554,7 @@ canvas {
     overflow: auto !important;
   }
   .logo {
-    margin-top: 0 !important;
+    margin-top: 10px !important;
     padding-top: 1em !important;
     margin-bottom: 20px !important;
   }
@@ -1588,6 +1625,13 @@ canvas {
   .ce-chat-list input {
     width: 100% !important;
   }
+  .ce-chat-title-container {
+    flex: 1 !important;
+    max-width: 100% !important;
+  }
+  .ce-chat-title img {
+    margin-left: 0 !important;
+  }
   .ce-chats-container {
     width: 100% !important;
     max-width: 100% !important;
@@ -1612,4 +1656,5 @@ canvas {
     width: 20% !important;
     text-align: right !important;
   }
+  
 }

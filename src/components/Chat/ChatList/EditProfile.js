@@ -13,7 +13,12 @@ export const EditProfile = ({ userstatus, close, onSubmit }) => {
 
     <div className="edit-profile">
 
-<form>
+<form
+ onSubmit={(e) => {
+          e.preventDefault();
+          onSubmit(newStatus);
+        }}
+>
       <div className="edit-name-input">
         <input
           placeholder="New status"
@@ -25,24 +30,7 @@ export const EditProfile = ({ userstatus, close, onSubmit }) => {
 
 
 
-      <div className="image-upload-actions">
-
-        <button
-          className="submit"
-          onClick={() => {
-            if (true) {
-              onSubmit(newStatus);
-            } else {
-              onSubmit();
-            }
-          }}
-        >
-          Upload
-        </button>
-        <button className="cancel" onClick={close}>
-          Cancel
-        </button>
-      </div>
+    
 </form>
     </div>
   );

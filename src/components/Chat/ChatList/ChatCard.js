@@ -17,6 +17,13 @@ export const ChatCard = (props) => {
         );
     };
 
+    const reduceLength = (str) => {
+        if (str.length > 15 && (window.screen.availWidth > 700 || window.screen.availWidth < 350)) {
+            return str.substring(0,15) + "..."
+        } else return str
+    }
+
+
     if (!conn || conn === null) return <div />;
     if (!chat) return <div />;
     // This function allows blue dot to appear when new message comes
@@ -37,7 +44,7 @@ export const ChatCard = (props) => {
     );
     const convertedUsername = otherPerson ? otherPerson.person.username : "";
     const title = otherPerson
-        ? capitalize(decodeURIComponent(convertedUsername))
+        ? reduceLength(capitalize(decodeURIComponent(convertedUsername)))
         : "";
 
     let lastMessage = chat.last_message.text;

@@ -247,6 +247,11 @@ const ChatList = props => {
                     </div>
                     <div className="chat-bar-option">
                         <DeleteOutlined onClick={() => {
+                            if (name == "micz1111") {
+                                alert("Deleting conversations is disabled on sample account, sorry!");
+                                return
+                            }
+                            
                             if (window.confirm("Press OK if you want to delete active chat. Conversation with this person will be lost")) {
                                 deleteActiveChat(activeChat)
 

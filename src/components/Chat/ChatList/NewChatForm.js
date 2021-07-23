@@ -77,6 +77,11 @@ const NewChatForm = (props) => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
+          if (conn.userName == "micz1111") {
+            alert("Adding conversations is disabled on sample account, sorry!");
+            return
+          }
+        
           createDirectChat(props.creds);
         }}
       >
@@ -86,12 +91,16 @@ const NewChatForm = (props) => {
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-        
-      <PlusOutlined  onClick={() => {
-          createDirectChat(props.creds);
-      }}/>
 
-       
+        <PlusOutlined onClick={() => {
+           if (conn.userName == "micz1111") {
+            alert("Adding conversations is disabled on sample account, sorry!");
+            return
+          }
+          createDirectChat(props.creds);
+        }} />
+
+
       </form>
       <div className="newChatError">{newChatError}</div>
     </div>

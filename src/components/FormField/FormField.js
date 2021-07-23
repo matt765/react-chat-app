@@ -6,7 +6,7 @@ export const FormField = ({ name, label, type = 'text', placeholder }) => (
    
        
   
-        <Field name={name} type={type}  placeholder={placeholder} />
+        <Field name={name} type={type}  placeholder={placeholder} maxlength={20} />
         
     </label>
 )

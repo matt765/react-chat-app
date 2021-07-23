@@ -1,7 +1,7 @@
 import { EditProfile } from "./EditProfile";
 import { useState, useEffect } from "react";
 import { useAuth } from "context/AuthContext.js";
-import { EditOutlined } from "@ant-design/icons";
+import { EditOutlined, CloseOutlined } from "@ant-design/icons";
 
 export const UserStatus = (props) => {
 
@@ -65,7 +65,9 @@ export const UserStatus = (props) => {
 
               </>}
                {!editing ?
-              <EditOutlined onClick={() => setEditing(true)} /> : ""}
+              <EditOutlined onClick={() => setEditing(true)} /> :
+               <CloseOutlined onClick={() => setEditing(false)} />
+               }
         </div>
     )
 }

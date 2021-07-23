@@ -13,7 +13,7 @@ export const validationSchema = Yup.object().shape({
     userName: Yup.string()
         .required('Required')
         .matches("^[A-Za-z0-9 ]*[A-Za-z0-9][A-Za-z0-9 ]*$", 'Please use letters or numbers')
-        .min(3, 'Must be at leat 3 characters')
+        .min(3, 'Must be at least 3 characters')
         .max(20, 'You have reached limit of characters')
 
 })
