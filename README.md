@@ -7,9 +7,8 @@ todo:
 
 
 dlugie nicki
-tryb dzienny
 profil poprawka
-responsywnosc przelaczanie
+
 
 
 logowanie fb

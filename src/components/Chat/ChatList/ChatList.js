@@ -22,6 +22,7 @@ const ChatList = props => {
     const [hasMoreChats, setHasMoreChats] = useState(true)
     const [editingProfile, setEditingProfile] = useState(false)
     const [logoSource, setLogoSource] = useState(chatLogo);
+    const [theme, setTheme] = useState("dark");
     const { conn, chats, setChats, setActiveChat, activeChat } = useContext(ChatEngineContext)
     const chat = chats && chats[activeChat];
 
@@ -29,6 +30,25 @@ const ChatList = props => {
 
     const name = props.chatAppState.userName
     const secret = props.chatAppState.userSecret
+
+    useEffect(() => {
+
+
+
+        const themeValue = localStorage.getItem("theme");
+
+        if (themeValue == "light") {
+            document.querySelector(".app").classList.add("light");
+            setLogoSource(chatLogoWhite)
+
+        } else if (themeValue == "dark") {
+            document.querySelector(".app").classList.remove("light");
+            setLogoSource(chatLogo)
+
+        } else {
+            localStorage.setItem("theme", theme);
+        }
+    }, [theme]);
 
     function deleteActiveChat(chatID) {
         var myHeaders = new Headers();
@@ -162,12 +182,12 @@ const ChatList = props => {
                     {(window.screen.availWidth > 700) ?
                         <img src={logoSource} alt="" /> :
                         <div className="mobile-toggler">
-                        <CloseOutlined
-                            onClick={() => {
-                                document.querySelector(".chat-container").children[0].children[1].children[0].style.display = "none";
-                                document.querySelector(".chat-container").children[0].children[1].children[1].style.display = "block";
-                            }}
-                        />
+                            <CloseOutlined
+                                onClick={() => {
+                                    document.querySelector(".chat-container").children[0].children[1].children[0].style.display = "none";
+                                    document.querySelector(".chat-container").children[0].children[1].children[1].style.display = "block";
+                                }}
+                            />
                         </div>
                     }
 
@@ -205,9 +225,24 @@ const ChatList = props => {
                     </div>
                     <div className="chat-bar-option">
                         <BgColorsOutlined onClick={() => {
-                            document.querySelector(".app").classList.toggle("light");
-                            (logoSource == chatLogo) ? setLogoSource(chatLogoWhite) : setLogoSource(chatLogo)
-                      
+                            //   document.querySelector(".app").classList.toggle("light");
+                            const themeValue = localStorage.getItem("theme");
+
+                            if (themeValue == "dark") {
+                                setTheme("light")
+                                localStorage.setItem("theme", "light");
+                                document.querySelector(".app").classList.add("light");
+                                setLogoSource(chatLogoWhite)
+                            } else if (themeValue == "light") {
+                                setTheme("dark")
+                                localStorage.setItem("theme", "dark");
+                                document.querySelector(".app").classList.remove("light");
+                                setLogoSource(chatLogo)
+                            }
+                            //  localStorage.setItem("light-theme", lightTheme)
+
+
+
                         }} />
                     </div>
                     <div className="chat-bar-option">
@@ -224,8 +259,8 @@ const ChatList = props => {
                     <div className="chat-bar-option"> <LogoutOutlined onClick={() => {
                         if (window.confirm("Press OK if you want to logout")) {
                             fb.auth.signOut().then(console.log("logged out"))
-                            document.querySelector(".app").classList.toggle("light");
-
+                            document.querySelector(".app").classList.remove("light");
+                            
                         }
 
 
