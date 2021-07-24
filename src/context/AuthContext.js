@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         fb.auth.onAuthStateChanged((user) => {
             if (user && user.displayName == null) {
-                // When logging with custom account
+                //When logging with custom account
                 setUserObject(user);
                 setConvertedName(
                     lowerLetters(user.email.substring(0, user.email.lastIndexOf("@")))
@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
                 setLoading(false);
                 history.push("/react-chat-app/");
             } else if (user && user.displayName !== null) {
-                // When logging with gmail/fb account
+                //When logging with gmail/fb account
                 setUserObject(user);
                 setConvertedName(encodeURIComponent(lowerLetters(user.displayName)));
                 setLoading(false);
