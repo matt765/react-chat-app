@@ -18,7 +18,7 @@ export const Signup = () => {
 
     const signup = ({ userName, password }, { setSubmitting }) => {
         setLoading(true)
-        // @chat.engine is added to login because of Firebase requiring email string
+        //@chat.engine is added to login because of Firebase requiring email string
         fb.auth
             .createUserWithEmailAndPassword(
                 `${encodeURIComponent(lowerLetters(userName))}@chat.engine`,
@@ -43,7 +43,6 @@ export const Signup = () => {
                 setLoading(false)
             });
     };
-
     return (
         <div className="auth-form signup-fields">
             <div className="logo">

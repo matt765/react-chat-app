@@ -44,7 +44,6 @@ export const Login = () => {
         setLoading(false)
       });
   };
-
   return (
     <div className="auth-form">
       <div className="logo">
