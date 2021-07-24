@@ -1,10 +1,6 @@
 import React, { useContext } from 'react'
-
 import { ChatEngineContext } from 'react-chat-engine'
-
-
 import DatePartition from './DatePartition'
-
 import MyMessage from './MyMessage'
 import TheirMessage from './TheirMessage'
 import SendingMessage from './SendingMessage'

@@ -14,7 +14,7 @@ const IsTyping = () => {
             (match) => match.toUpperCase()
         );
     };
-   
+
     useEffect(() => {
         if (!didMountRef.current) {
             didMountRef.current = true
@@ -32,22 +32,18 @@ const IsTyping = () => {
                 Object.keys(typers).map((username, index) => {
                     if (conn.userName !== username && currentTime < typers[username] + 2000) {
                         return (
-                            <div 
-                                key={`typer_${index}`} 
+                            <div
+                                key={`typer_${index}`}
                                 style={{
-                                     color: 'var(--paperclip-color)',
-                                      paddingLeft: '10px', 
-                                      position: 'relative'
-                                      
-                                     
-                                     
-                                     
-                                     }}
+                                    color: 'var(--paperclip-color)',
+                                    paddingLeft: '10px',
+                                    position: 'relative'
+
+                                }}
                             >
                                 {`${capitalize(decodeURIComponent(username))} is typing...`}
                             </div>
                         )
-
                     } else {
                         return <div key={`typer_${index}`} />
                     }

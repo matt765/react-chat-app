@@ -9,8 +9,6 @@ export const ChatCard = (props) => {
     const { conn, activeChat, setActiveChat } = useContext(ChatEngineContext);
     const { chat } = props;
 
-
-
     const capitalize = (str, lower = true) => {
         return (lower ? str.toLowerCase() : str).replace(
             /(?:^|\s|["'([{])+\S/g,
@@ -58,56 +56,32 @@ export const ChatCard = (props) => {
     }
     function getDateTime(date) {
         if (!date) return ''
-        
         date = date.replace(' ', 'T')
-     
-    
-        const year = date.substr(0,4)
-        const month = date.substr(5,2)
-        const day = date.substr(8,2)
-        const hour = date.substr(11,2)
-        const minute = date.substr(14,2)
-        const second = date.substr(17,2)
-        
+        const year = date.substr(0, 4)
+        const month = date.substr(5, 2)
+        const day = date.substr(8, 2)
+        const hour = date.substr(11, 2)
+        const minute = date.substr(14, 2)
+        const second = date.substr(17, 2)
         var d = new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}`)
-
-        let offset = (-(d.getTimezoneOffset())/60)
-    
-
+        let offset = (-(d.getTimezoneOffset()) / 60)
         d.setHours(d.getHours() + offset)
         return d
     }
     function timeSinceDate(date) {
-       
         if (!date) return ''
-
-
         let convertedDate = getDateTime(date)
-      
-   
-        
-  
-
-       
-        
         let sent = convertedDate.toString()
-       
         const dayStr = sent.substr(3, 7)
         const timeStr = sent.substr(15, 6)
-
         if (isToday(convertedDate)) {
-
             return timeStr
         } else {
             return dayStr
         }
 
 
-
-
     }
-
-
 
     return (
         <div
@@ -118,13 +92,12 @@ export const ChatCard = (props) => {
         >
             {otherPerson && otherPerson.person.avatar ? (
                 <div className="avatar-online">
-               
-                  
-                   <Avatar 
-                    avatar={otherPerson.person.avatar ? otherPerson.person.avatar : ""} 
-                    username={otherPerson.person.username} 
-                    is_online={otherPerson.person.is_online}
-                />
+
+                    <Avatar
+                        avatar={otherPerson.person.avatar ? otherPerson.person.avatar : ""}
+                        username={otherPerson.person.username}
+                        is_online={otherPerson.person.is_online}
+                    />
                 </div>
             ) : (
                 <div className="avatar-online">
@@ -152,8 +125,6 @@ export const ChatCard = (props) => {
                     id={`ce-chat-card-title-${title}`}
                 >
                     {title}
-
-
                 </div>
 
                 <div style={{ width: "100%" }} className="ce-chat-subtitle">
@@ -164,7 +135,7 @@ export const ChatCard = (props) => {
                         {lastMessage}
                     </div>
 
-                   
+
                 </div>
             </div>
             <div className="chat-card-activity">

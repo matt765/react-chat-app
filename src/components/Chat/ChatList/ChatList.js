@@ -12,7 +12,6 @@ import NewChatForm from './NewChatForm'
 
 let count = 50
 
-
 const ChatList = props => {
     const didMountRef = useRef(false)
     const [hasMoreChats, setHasMoreChats] = useState(true)
@@ -26,8 +25,6 @@ const ChatList = props => {
     const secret = props.chatAppState.userSecret
 
     useEffect(() => {
-
-
 
         const themeValue = localStorage.getItem("theme");
 
@@ -148,14 +145,11 @@ const ChatList = props => {
         }
     })
 
-
     useEffect(() => {
         if (!activeChat) {
             activeConversation()
         }
     }, [chats, activeChat])
-
-
 
     const chatList = sortChats(
         chats ?
@@ -166,7 +160,6 @@ const ChatList = props => {
         if (chatList[0]) {
             setActiveChat(chatList[0].id)
         }
-
     }
     if (chats == null) return <div />;
     return (
@@ -184,7 +177,6 @@ const ChatList = props => {
                             />
                         </div>
                     }
-
                 </div>
                 <div className="chat-bar-options">
                     <div className="chat-bar-option">
@@ -209,15 +201,11 @@ const ChatList = props => {
 
                                 }
                             }
-
-
                         />
                     </div>
                     <div className="chat-bar-option">
                         <BgColorsOutlined onClick={() => {
-                            //   document.querySelector(".app").classList.toggle("light");
                             const themeValue = localStorage.getItem("theme");
-
                             if (themeValue === "dark") {
                                 setTheme("light")
                                 localStorage.setItem("theme", "light");
@@ -229,10 +217,6 @@ const ChatList = props => {
                                 document.querySelector(".app").classList.remove("light");
                                 setLogoSource(chatLogo)
                             }
-                            //  localStorage.setItem("light-theme", lightTheme)
-
-
-
                         }} />
                     </div>
                     <div className="chat-bar-option">
@@ -244,10 +228,7 @@ const ChatList = props => {
 
                             if (window.confirm("Press OK if you want to delete active chat. Conversation with this person will be lost")) {
                                 deleteActiveChat(activeChat)
-
                             }
-
-
 
                         }} />
                     </div>
@@ -255,15 +236,9 @@ const ChatList = props => {
                         if (window.confirm("Press OK if you want to logout")) {
                             fb.auth.signOut().then(console.log("logged out"))
                             document.querySelector(".app").classList.remove("light");
-
                         }
-
-
-
                     }} /></div>
-
                 </div>
-
             </div>
             <div className="chat-left-wing-list">
                 {editingProfile ?
@@ -280,11 +255,7 @@ const ChatList = props => {
                             <NewChatForm onClose={props.chatAppState.onClose ? () => props.chatAppState.onClose() : undefined} />
                     }
                     <div style={styles.chatsContainer} className='ce-chats-container'>
-
-
                         {renderChats(chatList)}
-
-
                         {
                             hasMoreChats && chatList.length > 0 &&
                             <div>

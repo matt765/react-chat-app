@@ -10,9 +10,6 @@ export const ChatAvatar = ({ file, close, onSubmit, crop = false, username, user
   const newUsername = useState(username);
   const newStatus = useState(userstatus);
 
-  
-console.log(username, userstatus)
-
   useEffect(() => {
     const fr = new FileReader();
     fr.onload = () => setImageSrc(fr.result);
@@ -33,8 +30,7 @@ console.log(username, userstatus)
       ) : (
         <Image size="medium" src={imageSrc} alt="preview" />
       )}
-      
-        
+              
       <div className="image-upload-actions">
         <button className="cancel" onClick={close}>
           Cancel

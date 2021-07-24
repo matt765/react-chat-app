@@ -5,69 +5,58 @@ import { EditOutlined, CloseOutlined } from "@ant-design/icons";
 
 export const UserStatus = (props) => {
 
-    const [userStatusAvailable, setUserStatusAvailable] = useState(false);
-    const [editing, setEditing] = useState(false);
-    const { userObject, convertedName } = useAuth();
-    const [currentStatus, setCurrentStatus] = useState(props.userStatus)
+  const [userStatusAvailable, setUserStatusAvailable] = useState(false);
+  const [editing, setEditing] = useState(false);
+  const { userObject, convertedName } = useAuth();
+  const [currentStatus, setCurrentStatus] = useState(props.userStatus)
 
-    useEffect(() => {
-        setUserStatusAvailable(true);
-    }, [editing])
+  useEffect(() => {
+    setUserStatusAvailable(true);
+  }, [editing])
 
-    const updateProfile = (newStatus) => {
-        const myHeaders = new Headers();
-        myHeaders.append("Project-ID", process.env.REACT_APP_PROJECT_ID);
-        myHeaders.append("User-Name", convertedName);
-        myHeaders.append("User-Secret", userObject.uid);
-    
-        const formdata = new FormData();
-        formdata.append("first_name", newStatus);
-    
-        const requestOptions = {
-          method: "PATCH",
-          headers: myHeaders,
-          body: formdata,
-          redirect: "follow",
-        };
-    
-        fetch("https://api.chatengine.io/users/me/", requestOptions).then(() => {
-       
-         
-          setCurrentStatus(newStatus)
-        });
-      };
+  const updateProfile = (newStatus) => {
+    const myHeaders = new Headers();
+    myHeaders.append("Project-ID", process.env.REACT_APP_PROJECT_ID);
+    myHeaders.append("User-Name", convertedName);
+    myHeaders.append("User-Secret", userObject.uid);
 
-    return (
-        <div className="chat-list-user-status">
-            {editing ?
-            <EditProfile
-              
-              userstatus={currentStatus}
-              close={() => {
-                setEditing(false)
+    const formdata = new FormData();
+    formdata.append("first_name", newStatus);
 
-              }}
-              onSubmit={(newStatus) => {
-                updateProfile(newStatus)
-                setEditing(false)
-                
-              }}
-            />
-            :
-            <>
-              
-                <div className="user-status">
-                  {currentStatus ? currentStatus : ""} </div>
+    const requestOptions = {
+      method: "PATCH",
+      headers: myHeaders,
+      body: formdata,
+      redirect: "follow",
+    };
 
-              
+    fetch("https://api.chatengine.io/users/me/", requestOptions).then(() => {
+      setCurrentStatus(newStatus)
+    });
+  };
 
-
-
-              </>}
-               {!editing ?
-              <EditOutlined onClick={() => setEditing(true)} /> :
-               <CloseOutlined onClick={() => setEditing(false)} />
-               }
-        </div>
-    )
+  return (
+    <div className="chat-list-user-status">
+      {editing ?
+        <EditProfile
+          userstatus={currentStatus}
+          close={() => {
+            setEditing(false)
+          }}
+          onSubmit={(newStatus) => {
+            updateProfile(newStatus)
+            setEditing(false)
+          }}
+        />
+        :
+        <>
+          <div className="user-status">
+            {currentStatus ? currentStatus : ""} </div>
+        </>}
+      {!editing ?
+        <EditOutlined onClick={() => setEditing(true)} /> :
+        <CloseOutlined onClick={() => setEditing(false)} />
+      }
+    </div>
+  )
 }

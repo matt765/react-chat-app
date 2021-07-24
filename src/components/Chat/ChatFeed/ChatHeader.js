@@ -30,65 +30,44 @@ export const ChatHeader = (props) => {
     const otherPerson = chat.people.find(
         (person) => person.person.username !== conn.userName
     );
-
     const userStatus = (otherPerson) ? otherPerson.person.first_name : ""
-
     const title = otherPerson
         ? capitalize(decodeURIComponent(otherPerson.person.username))
         : "";
 
     function getDateTime(date) {
         if (!date) return ''
-
         date = date.replace(' ', 'T')
-
-
         const year = date.substr(0, 4)
         const month = date.substr(5, 2)
         const day = date.substr(8, 2)
         const hour = date.substr(11, 2)
         const minute = date.substr(14, 2)
         const second = date.substr(17, 2)
-
         var d = new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}`)
-        
         let offset = (-(d.getTimezoneOffset()) / 60)
-      
-
         d.setHours(d.getHours() + offset)
         return d
     }
 
     function timeSinceDate(date) {
         if (!date) return ''
-
-
         let convertedDate = getDateTime(date)
-
-
-
-
-
-
-
         let sent = convertedDate.toString()
-
         const dayStr = sent.substr(0, 10)
         const timeStr = sent.substr(15, 6)
         return `${dayStr} at ${timeStr}`
     }
-
-
     return (
         <Row className="ce-chat-title" style={styles.titleSection}>
 
             <div className="mobile-toggler">
-                <MenuOutlined 
-                onClick={() => {
-    document.querySelector(".chat-container").children[0].children[1].children[0].style.display = "block";
-    document.querySelector(".chat-container").children[0].children[1].children[1].style.display = "none";
-                }}
-                 />
+                <MenuOutlined
+                    onClick={() => {
+                        document.querySelector(".chat-container").children[0].children[1].children[0].style.display = "block";
+                        document.querySelector(".chat-container").children[0].children[1].children[1].style.display = "none";
+                    }}
+                />
             </div>
 
             <Col
@@ -99,11 +78,11 @@ export const ChatHeader = (props) => {
             >
 
                 {otherPerson && otherPerson.person.avatar ? (
-                    <Avatar 
-                    avatar={otherPerson.person.avatar ? otherPerson.person.avatar : ""} 
-                    username={otherPerson.person.username} 
-                    is_online={otherPerson.person.is_online}
-                />
+                    <Avatar
+                        avatar={otherPerson.person.avatar ? otherPerson.person.avatar : ""}
+                        username={otherPerson.person.username}
+                        is_online={otherPerson.person.is_online}
+                    />
                 ) : (
                     <img
                         src={empty}

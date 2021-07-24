@@ -111,7 +111,6 @@ export const ChatProfile = (props) => {
         />
       )}
 
-
       {userObject.uid && avatarVisibility ? (
         <div className="current-user-info">
           <IconGroup

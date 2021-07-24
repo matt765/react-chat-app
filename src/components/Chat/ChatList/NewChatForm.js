@@ -64,7 +64,6 @@ const NewChatForm = (props) => {
             alert("Adding conversations is disabled on sample account, sorry!");
             return
           }
-        
           createDirectChat(props.creds);
         }}
       >
@@ -82,7 +81,6 @@ const NewChatForm = (props) => {
           }
           createDirectChat(props.creds);
         }} />
-
 
       </form>
       <div className="newChatError">{newChatError}</div>
