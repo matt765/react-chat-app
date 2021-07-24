@@ -1,7 +1,7 @@
 
 ## ChatApp
 
-Fully functional, responsive chat app, created in React. 
+Fully functional, responsive chat app created in React. 
 
 - Tech stack: HTML/JSX, SCSS/Flexbox, React
 - Login authentication provided by [Firebase](https://firebase.google.com/)
