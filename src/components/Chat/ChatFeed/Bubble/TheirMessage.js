@@ -143,7 +143,7 @@ const TheirMessage = props => {
                     </div>
 
                     {
-                        !attachments || message.text &&
+                        !attachments || (message.text &&
                         <div style={{ paddingLeft: '48px' }}>
                             <div
                                 className='ce-message-bubble ce-their-message-bubble'
@@ -153,7 +153,7 @@ const TheirMessage = props => {
                             >
                                 <Body text={message.text} />
                             </div>
-                        </div>
+                        </div>)
                     }
 
                     {

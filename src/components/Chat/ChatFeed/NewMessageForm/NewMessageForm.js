@@ -3,13 +3,10 @@ import React, { useContext, useState } from 'react'
 import { ChatEngineContext } from 'react-chat-engine'
 
 import { sendMessage, isTyping } from 'react-chat-engine'
-import { SendOutlined } from "@ant-design/icons";
 import sendIcon from "../../../../images/send.png";
 import FileRow from './FileRow'
 import ImagesInput from './ImagesInput'
 import MessageInput from './MessageInput'
-
-import { Button } from 'react-chat-engine'
 
 const NewMessageForm = () => {
   const { conn, activeChat, sendingMessages, setSendingMessages } = useContext(ChatEngineContext)

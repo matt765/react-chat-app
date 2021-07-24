@@ -1,8 +1,5 @@
-import React, { useContext } from "react";
-import { ChatEngineContext } from "react-chat-engine";
-import PhotosSettings from "./PhotosSettings";
-import OptionsSettings from "./OptionsSettings";
-import { ChatProfile } from "./ChatProfile";
+import React from "react";
+
 
 const ChatSettingsBox = () => {
   

@@ -2,11 +2,8 @@ import { useRef, useState, useEffect } from "react";
 import { useAuth } from "context/AuthContext.js";
 import { Icon, IconGroup, Loader } from "semantic-ui-react";
 import { ChatAvatar } from "./ChatAvatar";
-import { EditProfile } from "./EditProfile";
 import { UserStatus } from "./UserStatus";
 import empty from "../../../images/empty.png";
-import { LeftOutlined, DownOutlined, UserOutlined, DeleteOutlined, LogoutOutlined, EditOutlined } from "@ant-design/icons";
-import { fb } from "service";
 import loadingAnimation from "../../../images/loading.svg";
 
 export const ChatProfile = (props) => {
@@ -18,9 +15,6 @@ export const ChatProfile = (props) => {
   const [avatarState, setAvatarState] = useState(false);
   const [statusState, setStatusState] = useState(false);
   const [avatarVisibility, setAvatarVisibility] = useState(true);
-  const [editing, setEditing] = useState(false);
-
-  const { chat, name, secret } = props;
 
   const capitalize = (str, lower = true) => {
     return (lower ? str.toLowerCase() : str).replace(
@@ -32,47 +26,6 @@ export const ChatProfile = (props) => {
   const onFileAttach = (file) => {
     setImage(file);
   };
-
-  function deleteActiveChat(chatID) {
-    var myHeaders = new Headers();
-
-    let otherPerson = chat.people.find(
-      (person) => person.person.username !== name
-    )
-      ? chat.people.find((person) => person.person.username !== name)
-      : chat.people.find((person) => person.person.username == name);
-
-    myHeaders.append("Project-ID", process.env.REACT_APP_PROJECT_ID);
-    myHeaders.append("User-Name", name);
-    myHeaders.append("User-Secret", secret);
-
-    var raw = `{\n    \"username\": \"${name}\"\n}`;
-    var raw2 = `{\n    \"username\": \"${otherPerson.person.username}\"\n}`;
-
-    var firstUser = {
-      method: "DELETE",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow",
-    };
-    var secondUser = {
-      method: "DELETE",
-      headers: myHeaders,
-      body: raw2,
-      redirect: "follow",
-    };
-
-    fetch(`https://api.chatengine.io/chats/${chatID}/people/`, firstUser)
-      .then((response) => response.text())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
-
-    fetch(`https://api.chatengine.io/chats/${chatID}/people/`, secondUser)
-      .then((response) => response.text())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
-  }
-
 
   const updateAv = () => {
     const myHeaders = new Headers();
@@ -98,28 +51,6 @@ export const ChatProfile = (props) => {
       )
   };
 
-  const updateProfile = (newUsername, newStatus) => {
-    const myHeaders = new Headers();
-    myHeaders.append("Project-ID", process.env.REACT_APP_PROJECT_ID);
-    myHeaders.append("User-Name", convertedName);
-    myHeaders.append("User-Secret", userObject.uid);
-
-    const formdata = new FormData();
-    formdata.append("name", newUsername);
-    formdata.append("first_name", newStatus);
-
-    const requestOptions = {
-      method: "PATCH",
-      headers: myHeaders,
-      body: formdata,
-      redirect: "follow",
-    };
-
-    fetch("https://api.chatengine.io/users/me/", requestOptions).then(() => {
-      setAvatarState(false);
-
-    });
-  };
   useEffect(() => {
     var myHeaders = new Headers();
     myHeaders.append("Project-ID", process.env.REACT_APP_PROJECT_ID);
@@ -200,11 +131,13 @@ export const ChatProfile = (props) => {
                   <img
                     src={avatarURL}
                     style={{ borderRadius: "50%", width: "120px" }}
+                    alt=""
                   />
                 ) : (
                   <img
                     src={empty}
                     style={{ borderRadius: "50%", width: "120px" }}
+                    alt=""
                   />
                 )}
               </>

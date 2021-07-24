@@ -1,32 +1,26 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 
-import { ChatEngineContext, getLatestChats, getChatsBefore } from 'react-chat-engine'
+import { ChatEngineContext, getLatestChats } from 'react-chat-engine'
 import { ChatProfile } from "./ChatProfile";
-import { CloseOutlined, BgColorsOutlined, CommentOutlined, LeftOutlined, DownOutlined, UserOutlined, DeleteOutlined, LogoutOutlined, EditOutlined } from "@ant-design/icons";
+import { CloseOutlined, BgColorsOutlined, UserOutlined, DeleteOutlined, LogoutOutlined } from "@ant-design/icons";
 import { fb } from "service";
 import _ from 'lodash'
-import loadingAnimation from "../../../images/loading.svg";
 import chatLogo from "../../../images/chatlogo.png";
 import chatLogoWhite from "../../../images/chatlogowhite.png";
-import ChatLoader from '../ChatLoader'
-import NewChatForm from './NewChatForm'
-import ChatCard from './ChatCard'
 
+import NewChatForm from './NewChatForm'
 
 let count = 50
-const interval = 75
+
 
 const ChatList = props => {
     const didMountRef = useRef(false)
-    const [loadChats, setLoadChats] = useState(false)
     const [hasMoreChats, setHasMoreChats] = useState(true)
     const [editingProfile, setEditingProfile] = useState(false)
     const [logoSource, setLogoSource] = useState(chatLogo);
     const [theme, setTheme] = useState("dark");
     const { conn, chats, setChats, setActiveChat, activeChat } = useContext(ChatEngineContext)
     const chat = chats && chats[activeChat];
-
-    const [chatsHeight, setChatsHeight] = useState("440px")
 
     const name = props.chatAppState.userName
     const secret = props.chatAppState.userSecret
@@ -37,11 +31,11 @@ const ChatList = props => {
 
         const themeValue = localStorage.getItem("theme");
 
-        if (themeValue == "light") {
+        if (themeValue === "light") {
             document.querySelector(".app").classList.add("light");
             setLogoSource(chatLogoWhite)
 
-        } else if (themeValue == "dark") {
+        } else if (themeValue === "dark") {
             document.querySelector(".app").classList.remove("light");
             setLogoSource(chatLogo)
 
@@ -57,14 +51,14 @@ const ChatList = props => {
             (person) => person.person.username !== name
         )
             ? chat.people.find((person) => person.person.username !== name)
-            : chat.people.find((person) => person.person.username == name);
+            : chat.people.find((person) => person.person.username === name);
 
         myHeaders.append("Project-ID", process.env.REACT_APP_PROJECT_ID);
         myHeaders.append("User-Name", name);
         myHeaders.append("User-Secret", secret);
 
-        var raw = `{\n    \"username\": \"${name}\"\n}`;
-        var raw2 = `{\n    \"username\": \"${otherPerson.person.username}\"\n}`;
+        var raw = `{"username": "${name}"}`;
+        var raw2 = `{"username": "${otherPerson.person.username}"}`;
 
         var firstUser = {
             method: "DELETE",
@@ -139,11 +133,11 @@ const ChatList = props => {
     }
 
     useEffect(() => {
-        if (!didMountRef.current) {
+        if (!didMountRef.current && name && secret) {
             didMountRef.current = true
 
             getLatestChats(
-                props,
+                props.chatAppState,
                 count,
                 (chats) => {
                     onGetChats(chats)
@@ -159,7 +153,7 @@ const ChatList = props => {
         if (!activeChat) {
             activeConversation()
         }
-    }, [chats])
+    }, [chats, activeChat])
 
 
 
@@ -198,21 +192,17 @@ const ChatList = props => {
                             onClick={
                                 () => {
                                     if (editingProfile && (window.screen.availWidth > 1150)) {
-                                        console.log("11")
                                         setEditingProfile(!editingProfile)
                                         document.querySelector(".ce-chats-container").style.height = "530px"
                                     }
                                     else if (!editingProfile && (window.screen.availWidth > 1150)) {
-                                        console.log("2221")
                                         setEditingProfile(!editingProfile)
                                         document.querySelector(".ce-chats-container").style.height = "425px"
                                     }
                                     else if (editingProfile && (window.screen.availWidth <= 1150)) {
-                                        console.log("3331")
                                         setEditingProfile(!editingProfile)
                                         document.querySelector(".ce-chats-container").style.height = "calc(100vh - 76px)"
                                     } else {
-                                        console.log("4441")
                                         setEditingProfile(!editingProfile)
                                         document.querySelector(".ce-chats-container").style.height = "calc(100vh - 166px)"
                                     }
@@ -228,12 +218,12 @@ const ChatList = props => {
                             //   document.querySelector(".app").classList.toggle("light");
                             const themeValue = localStorage.getItem("theme");
 
-                            if (themeValue == "dark") {
+                            if (themeValue === "dark") {
                                 setTheme("light")
                                 localStorage.setItem("theme", "light");
                                 document.querySelector(".app").classList.add("light");
                                 setLogoSource(chatLogoWhite)
-                            } else if (themeValue == "light") {
+                            } else if (themeValue === "light") {
                                 setTheme("dark")
                                 localStorage.setItem("theme", "dark");
                                 document.querySelector(".app").classList.remove("light");
@@ -247,11 +237,11 @@ const ChatList = props => {
                     </div>
                     <div className="chat-bar-option">
                         <DeleteOutlined onClick={() => {
-                            if (name == "micz1111") {
+                            if (name === "john%20doe") {
                                 alert("Deleting conversations is disabled on sample account, sorry!");
                                 return
                             }
-                            
+
                             if (window.confirm("Press OK if you want to delete active chat. Conversation with this person will be lost")) {
                                 deleteActiveChat(activeChat)
 
@@ -265,7 +255,7 @@ const ChatList = props => {
                         if (window.confirm("Press OK if you want to logout")) {
                             fb.auth.signOut().then(console.log("logged out"))
                             document.querySelector(".app").classList.remove("light");
-                            
+
                         }
 
 
@@ -298,7 +288,7 @@ const ChatList = props => {
                         {
                             hasMoreChats && chatList.length > 0 &&
                             <div>
-                                <ChatLoader onVisible={() => setLoadChats(true)} />
+
                                 <div style={{ height: '8px' }} />
                             </div>
                         }

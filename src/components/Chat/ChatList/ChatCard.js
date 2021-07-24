@@ -3,6 +3,7 @@ import { ChatEngineContext } from "react-chat-engine";
 import _ from "lodash";
 import { DeleteOutlined } from "@ant-design/icons";
 import empty from "../../../images/empty.png";
+import { Avatar } from 'react-chat-engine'
 
 export const ChatCard = (props) => {
     const { conn, activeChat, setActiveChat } = useContext(ChatEngineContext);
@@ -17,15 +18,9 @@ export const ChatCard = (props) => {
         );
     };
 
-    const reduceLength = (str) => {
-        if (str.length > 15 && (window.screen.availWidth > 700 || window.screen.availWidth < 350)) {
-            return str.substring(0,15) + "..."
-        } else return str
-    }
-
-
     if (!conn || conn === null) return <div />;
     if (!chat) return <div />;
+
     // This function allows blue dot to appear when new message comes
 
     function readLastMessage(chat) {
@@ -44,7 +39,7 @@ export const ChatCard = (props) => {
     );
     const convertedUsername = otherPerson ? otherPerson.person.username : "";
     const title = otherPerson
-        ? reduceLength(capitalize(decodeURIComponent(convertedUsername)))
+        ? capitalize(decodeURIComponent(convertedUsername))
         : "";
 
     let lastMessage = chat.last_message.text;
@@ -123,17 +118,13 @@ export const ChatCard = (props) => {
         >
             {otherPerson && otherPerson.person.avatar ? (
                 <div className="avatar-online">
-                    <div
-                        className='ce-avatar-status'
-                        style={{
-                            ...styles.status,
-                            ...{ backgroundColor: otherPerson.person.is_online ? '#52c41a' : '#f5222d' }
-                        }}
-                    />
-                    <img
-                        src={otherPerson.person.avatar}
-                        style={{ borderRadius: "50%", width: "40px" }}
-                    />
+               
+                  
+                   <Avatar 
+                    avatar={otherPerson.person.avatar ? otherPerson.person.avatar : ""} 
+                    username={otherPerson.person.username} 
+                    is_online={otherPerson.person.is_online}
+                />
                 </div>
             ) : (
                 <div className="avatar-online">

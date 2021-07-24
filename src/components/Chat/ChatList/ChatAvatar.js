@@ -1,16 +1,14 @@
 import AvatarEditor from "react-avatar-editor";
 import { Image } from "semantic-ui-react";
 import { useEffect, useRef, useState } from "react";
-import { ChatEngineContext } from "react-chat-engine";
-import React, { useContext } from "react";
+import React from "react";
 
 export const ChatAvatar = ({ file, close, onSubmit, crop = false, username, userstatus }) => {
 
-  const { conn } = useContext(ChatEngineContext);
   const [imageSrc, setImageSrc] = useState("");
   const cropRef = useRef();
-  const [newUsername, setNewUsername] = useState(username);
-  const [newStatus, setNewStatus] = useState(userstatus);
+  const newUsername = useState(username);
+  const newStatus = useState(userstatus);
 
   
 console.log(username, userstatus)

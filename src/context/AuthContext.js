@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
                 setLoading(false);
             }
         });
-    }, []);
+    }, [ history]);
 
     const value = { userObject, convertedName };
 

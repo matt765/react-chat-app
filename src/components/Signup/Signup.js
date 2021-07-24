@@ -4,7 +4,7 @@ import { FormField } from "components";
 import { ErrorMessage, Formik, Form } from "formik";
 import { useHistory } from "react-router-dom";
 import { validationSchema, defaultValues } from "./formikConfig";
-import { GoogleOutlined, FacebookOutlined, UserOutlined, LockOutlined, CommentOutlined } from "@ant-design/icons";
+import { UserOutlined, LockOutlined, CommentOutlined } from "@ant-design/icons";
 import loadingAnimation from "../../images/loading.svg";
 
 export const Signup = () => {
@@ -61,19 +61,19 @@ export const Signup = () => {
             >
                 {({ isValid, isSubmitting }) => (
                     <Form>
-                        <div class="login-fields ">
+                        <div className="login-fields ">
 
-                            <div class="login-field">
+                            <div className="login-field">
                                 <UserOutlined />
                                 <FormField name="userName" placeholder="Username" />
                             </div>
                             <ErrorMessage component='div' name="userName" className="error" />
-                            <div class="login-field">
+                            <div className="login-field">
                                 <LockOutlined />
                                 <FormField name="password" type="password" placeholder="Password" />
                             </div>
                             <ErrorMessage component='div' name="password" className="error" />
-                            <div class="login-field">
+                            <div className="login-field">
                                 <LockOutlined />
                                 <FormField name="verifyPassword" placeholder="Verify Password" type="password" />
                             </div>

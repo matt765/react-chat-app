@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { ChatEngineContext } from "react-chat-engine";
-import ChatListDrawer from "./ChatListDrawer";
 import { Row, Col } from "react-grid-system";
 import { setConfiguration } from "react-grid-system";
 import empty from "../../../images/empty.png";
-import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
+import { MenuOutlined } from "@ant-design/icons";
+import { Avatar } from 'react-chat-engine'
 
 setConfiguration({ maxScreenClass: "xl", gutterWidth: 0 });
 
@@ -51,9 +51,9 @@ export const ChatHeader = (props) => {
         const second = date.substr(17, 2)
 
         var d = new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}`)
-        console.log(d)
+        
         let offset = (-(d.getTimezoneOffset()) / 60)
-        console.log(offset)
+      
 
         d.setHours(d.getHours() + offset)
         return d
@@ -99,15 +99,17 @@ export const ChatHeader = (props) => {
             >
 
                 {otherPerson && otherPerson.person.avatar ? (
-                    <img
-                        src={otherPerson.person.avatar}
-                        style={{ borderRadius: "50%", width: "40px" }}
-                    />
+                    <Avatar 
+                    avatar={otherPerson.person.avatar ? otherPerson.person.avatar : ""} 
+                    username={otherPerson.person.username} 
+                    is_online={otherPerson.person.is_online}
+                />
                 ) : (
                     <img
                         src={empty}
                         className="chat-card-avatar"
                         style={{ borderRadius: "50%", width: "40px" }}
+                        alt=""
                     />
                 )}
                 <div className="ce-chat-header-container">

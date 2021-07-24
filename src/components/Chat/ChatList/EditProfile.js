@@ -1,10 +1,8 @@
-import AvatarEditor from "react-avatar-editor";
-import { Image } from "semantic-ui-react";
-import { useEffect, useRef, useState } from "react";
-import { ChatEngineContext } from "react-chat-engine";
-import React, { useContext } from "react";
 
-export const EditProfile = ({ userstatus, close, onSubmit }) => {
+import { useState } from "react";
+import React from "react";
+
+export const EditProfile = ({ userstatus, onSubmit }) => {
 
 
   const [newStatus, setNewStatus] = useState(userstatus);

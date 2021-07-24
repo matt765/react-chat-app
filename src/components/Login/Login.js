@@ -10,7 +10,6 @@ import loadingAnimation from "../../images/loading.svg";
 export const Login = () => {
   const [serverError, setServerError] = useState("");
   const history = useHistory();
-  const [username, setUsername] = useState("");
   const [loading, setLoading] = useState(false);
   function lowerLetters(str) {
     return str.toLowerCase();
@@ -24,7 +23,7 @@ export const Login = () => {
         password
       )
       .then((res) => {
-        
+
         if (!res.user) {
           setServerError(
             "We're having trouble logging you in. Please try again."
@@ -42,7 +41,6 @@ export const Login = () => {
         }
       })
       .finally(() => {
-        setSubmitting(false)
         setLoading(false)
       });
   };
@@ -65,12 +63,12 @@ export const Login = () => {
       >
         {({ isValid, isSubmitting }) => (
           <Form>
-            <div class="login-fields">
-              <div class="login-field">
+            <div className="login-fields">
+              <div className="login-field">
                 <UserOutlined />
-                <FormField name="userName" placeholder="Username"  /></div>
-                <ErrorMessage component='div' name="userName" className="error" /> <br />
-              <div class="login-field">
+                <FormField name="userName" placeholder="Username" /></div>
+              <ErrorMessage component='div' name="userName" className="error" /> <br />
+              <div className="login-field">
                 <LockOutlined />
                 <FormField name="password" placeholder="Password" type="password" />
               </div>
@@ -79,17 +77,28 @@ export const Login = () => {
             <div className="auth-link-container">
               Don't have an account?{" "}
               <span
-                className="auth-link"
+                className="auth-link signup-text"
                 onClick={() => history.push("signup")}
-                className="signup-text"
+
               >
                 Sign Up!
               </span>
             </div>
-            {!loading ? 
-            <button type="submit">
-              Login
-            </button> : <div className="loading-image"><img src={loadingAnimation} alt=""  /></div>}
+            {!loading ?
+              <div className="login-buttons">
+                <button type="submit">
+                  Login
+                </button>
+                <button 
+                className="sample-account-button"
+                onClick={() => {
+
+                login({userName: "john doe", password: "password123"}, { setSubmitting: true })
+
+                }}>
+                  Sample Account
+                </button>
+              </div> : <div className="loading-image"><img src={loadingAnimation} alt="" /></div>}
 
             {!!serverError && <div className="error server-error">{serverError}</div>}
           </Form>

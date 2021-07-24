@@ -34,7 +34,7 @@ export default Thumbnail
 
 const styles = {
     loadingContainer: {
-        width: '100%', 
+        
         cursor: 'pointer',
         textAlign: 'right', 
         display: 'inline-block', 
@@ -51,14 +51,12 @@ const styles = {
         backgroundColor: '#d9d9d9',
     },
     thumbnail: { 
-        width: '100%', 
         cursor: 'pointer',
         textAlign: 'right', 
         display: 'inline', 
         objectFit: 'cover',
         borderRadius: '0.3em',
         paddingRight: '2px',
-
         height: '30vw', 
         width: '30vw', 
         maxHeight: '200px',

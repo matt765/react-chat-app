@@ -13,7 +13,7 @@ const ImagesInput = props => {
     }
 
     return (
-        <form
+        <div
             className="uploader"
             encType="multipart/form-data"
             style={{ height: '0px' }}
@@ -41,7 +41,7 @@ const ImagesInput = props => {
                 onChange={(e) => onSelect(e)}
                 onClick={(e) => e.target.value = null}
             />
-        </form>
+        </div>
     );
 }
 

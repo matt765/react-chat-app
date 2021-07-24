@@ -25,7 +25,7 @@ const Message = props => {
 
         return chat.people.map((chatPerson, index) => {
          
-            if (message.id === chatPerson.last_read && (chatPerson.person.username != conn.userName)) {
+            if (message.id === chatPerson.last_read && (chatPerson.person.username !== conn.userName)) {
                 return (
                     <Dot
                         key={`read_${index}`}
@@ -134,7 +134,7 @@ const Message = props => {
                     }
 
                     {
-                        !attachments || message.text &&
+                        !attachments || (message.text &&
                         <div
                             className='ce-message-bubble ce-my-message-bubble'
                             style={{ ...styles.myMessage, ...{ borderRadius } }}
@@ -142,7 +142,7 @@ const Message = props => {
                             onMouseLeave={() => setHovered(false)}
                         >
                             <Body myMessage={true} text={message.text} />
-                        </div>
+                        </div>)
                     }
                 </Col>
 

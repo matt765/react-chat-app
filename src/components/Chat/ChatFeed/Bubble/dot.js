@@ -21,8 +21,7 @@ export default class Dot extends Component {
     componentDidUpdate() { this.updateImg() }
 
     render() {
-        const { username } = this.props
-       
+             
         const customStyle = this.props.style ? this.props.style : {}
         
         return (

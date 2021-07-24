@@ -30,7 +30,7 @@ const SendingMessage = props => {
         return () => {
             clearInterval(reconnectID);
         }
-    }, [])
+    })
 
     function renderImages(attachments) {
         return attachments.map((attachment, index) => {

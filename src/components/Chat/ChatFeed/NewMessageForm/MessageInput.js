@@ -50,7 +50,7 @@ export default class MessageInput extends Component {
                 type={this.props.type ? this.props.type : "text" }
                 onChange={(e) => this.handleChange(e)} 
                 onKeyDown={(e) => this.onKeyDown(e)}
-                maxlength='120'
+                maxLength='120'
                 required
             />
         )

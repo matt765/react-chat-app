@@ -8,6 +8,13 @@ const IsTyping = () => {
     const { conn, activeChat, typingCounter } = useContext(ChatEngineContext)
     const typers = typingCounter && typingCounter[activeChat] ? typingCounter[activeChat] : []
 
+    const capitalize = (str, lower = true) => {
+        return (lower ? str.toLowerCase() : str).replace(
+            /(?:^|\s|["'([{])+\S/g,
+            (match) => match.toUpperCase()
+        );
+    };
+   
     useEffect(() => {
         if (!didMountRef.current) {
             didMountRef.current = true
@@ -37,7 +44,7 @@ const IsTyping = () => {
                                      
                                      }}
                             >
-                                {`${username} is typing...`}
+                                {`${capitalize(decodeURIComponent(username))} is typing...`}
                             </div>
                         )
 
