@@ -1,0 +1,280 @@
+/* Chat Feed */
+
+.ce-chat-feed {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color) rgba(255, 255, 255, 0);
+  border-width: 0px !important;
+  position: relative !important;
+  margin-bottom: -30px !important;
+}
+
+.ce-chat-feed-container {
+  scrollbar-width: none;
+  scrollbar-color: var(--scrollbar-color) rgba(255, 255, 255, 0);
+  border-width: 0px !important;
+  position: relative !important;
+  margin-bottom: -30px !important;
+  max-height: 97% !important;
+}
+
+.ce-feed-container-bottom {
+  max-height: 70px !important;
+}
+
+.ce-chat-feed {
+  img {
+    border-width: 0 !important;
+  }
+
+  > div {
+    background-color: var(--app-bg-color) !important;
+  }
+}
+
+.ce-message-row {
+  padding-bottom: 0 !important;
+
+  span {
+    color: var(--paperclip-color) !important;
+    text-align: center !important;
+  }
+}
+
+.ce-chat-title-container {
+  color: white !important;
+  display: flex !important;
+  margin-left: 20px !important;
+  z-index: 100 !important;
+  border-color: var(--border-color);
+  border-style: solid !important;
+  border-bottom-width: var(--header-border) !important;
+  border-width: 0 0 0 0 !important;
+}
+.ce-chat-title-container .ce-avatar {
+  position: relative !important;
+  margin-left: 10px !important;
+}
+.ce-chat-title-container .ce-avatar-status {
+  display: none !important;
+}
+.ce-chat-header-container {
+  margin-left: 20px !important;
+}
+.mobile-toggler {
+  display: none !important;
+}
+.ce-chat-title {
+  flex-wrap: nowrap !important;
+  border-width: 0 0 1px 0 !important;
+  border-color: var(--border-color);
+  border-style: solid !important;
+
+  > img:nth-child(2) {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+.ce-chat-feed:first-child {
+  background-color: black !important;
+}
+.ce-chat-title-text {
+  font-family: var(--title-font) !important;
+  font-size: 20px !important;
+  font-weight: 600;
+}
+
+.ce-chat-header-container > div {
+  &:nth-child(1) {
+    font-size: 19px !important;
+    font-weight: 500 !important;
+    color: var(--title-color) !important;
+  }
+
+  &:nth-child(2) {
+    color: var(--gray-text) !important;
+  }
+}
+
+.ce-chat-title img {
+  height: 42px !important;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-left: 10px !important;
+}
+
+.ce-message-bubble {
+  background-color: var(--own-msg-color) !important;
+  max-width: 350px !important;
+  margin-bottom: 2px !important;
+}
+
+.ce-their-message-bubble {
+  background-color: var(--their-msg-color) !important;
+  color: var(--their-message-text-color) !important;
+}
+
+.ce-my-message-bubble {
+  max-width: 350px !important;
+  word-wrap: break-word;
+  color: var(--message-text-color) !important;
+  margin-right: 5px !important;
+}
+
+.ce-message-input-form {
+  background-color: var(--bg-input) !important;
+  border-radius: 25px !important;
+  padding: 0 !important;
+  max-width: 620px !important;
+  width: 620px !important;
+  margin: auto;
+  margin-bottom: 20px !important;
+  display: flex !important;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  &:focus {
+    background-color: #5e6475 !important;
+  }
+}
+
+#msg-textarea {
+  background-color: var(--bg-input) !important;
+  border-width: 0 !important;
+  color: var(--gray-text) !important;
+  margin-top: 10px !important;
+  font-family: Quicksand !important;
+  line-break: auto !important;
+  max-height: 29px !important;
+  width: 80% !important;
+  max-width: 80% !important;
+}
+@media only screen and (max-width: 900px) {
+  #msg-textarea {
+    width: 68% !important;
+    max-width: 68% !important;
+  }
+}
+@media only screen and (max-width: 400px) {
+  #msg-textarea {
+    width: 60% !important;
+    max-width: 60% !important;
+  }
+}
+#ce-send-message-button {
+  margin-left: 15px !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  border-width: 0 !important;
+  padding: 0 !important;
+  outline: none;
+  color: white;
+  background-color: var(--own-msg-color) !important;
+  cursor: pointer !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  &:hover {
+    background-color: #7f7bfa !important;
+  }
+}
+.light #ce-send-message-button {
+  &:hover {
+    background-color: #859ff3 !important;
+  }
+}
+
+.send-icon {
+  width: 20px !important;
+  transform: rotate(-20deg);
+  margin-left: 5px !important;
+}
+
+.ce-their-message-row {
+  align-items: flex-end !important;
+  padding-left: 10px !important;
+
+  .ce-avatar-dot {
+    display: none !important;
+  }
+}
+
+.ce-their-message-avatar {
+  > div {
+    height: 100% !important;
+
+    > div {
+      height: 100% !important;
+    }
+  }
+
+  height: 100% !important;
+  position: absolute !important;
+}
+
+.ce-message-date-text {
+  color: var(--gray-text) !important;
+  margin-bottom: 10px !important;
+  margin-top: 10px !important;
+}
+
+.ce-avatar {
+  position: absolute !important;
+  bottom: 0 !important;
+  background-repeat: repeat !important;
+  background-color: rgba(255, 255, 255, 0) !important;
+  background-image: url("../images/empty.png");
+}
+.ce-chat-card .ce-avatar {
+  position: absolute !important;
+  top: 0 !important;
+  width: 45px !important;
+  height: 45px !important;
+}
+div.ce-avatar-dot:nth-child(1) {
+}
+
+.ce-avatar-dot {
+  background-repeat: repeat !important;
+  background-color: rgba(255, 255, 255, 0) !important;
+  /* background-image: url("./images/dot.png") !important; */
+  margin-right: 5px !important;
+  margin-top: 2px !important;
+}
+.ce-avatar-status {
+  position: absolute !important;
+  top: 35px !important;
+}
+.ce-their-message-sender {
+  display: none !important;
+}
+
+.anticon-paper-clip {
+  position: relative !important;
+  right: -15px !important;
+  bottom: -10px !important;
+
+  * {
+    color: var(--paperclip-color) !important;
+  }
+}
+
+.ce-message-form-container {
+  display: flex !important;
+  flex-direction: row !important;
+  height: 70px !important;
+}
+
+.ce-message-form {
+  display: flex !important;
+  flex-direction: row !important;
+  margin: auto;
+  padding-top: 10px !important;
+  margin-right: 10px !important;
+}
+
+.uploader {
+  width: 40px !important;
+}
+
+#ce-ice-breaker-gif {
+  max-width: 100px !important;
+  margin-top: 30px !important;
+}

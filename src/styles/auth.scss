@@ -1,0 +1,186 @@
+
+/* Login */
+
+.auth-form {
+    background-color: var(--app-bg-color) !important;
+    width: 350px;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.678);
+    margin-top: 150px !important;
+    padding: 50px !important;
+    color: var(--title-color) !important;
+    padding-bottom: 20px !important;
+  
+    h1 {
+      text-align: center !important;
+    }
+  
+    .sample-account-button {
+      margin-top: 0 !important;
+    }
+    button {
+      margin-top: 30px !important;
+      margin-bottom: 20px !important;
+      width: 350px !important;
+      height: 40px !important;
+      background-color: var(--own-msg-color) !important;
+      color: white !important;
+      border-width: 0 !important;
+      border-radius: 10px !important;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: #7f7af8 !important;
+      }
+    }
+  
+    .server-error {
+      color: rgb(250, 95, 95) !important;
+      text-align: center !important;
+      margin-bottom: 30px !important;
+    }
+  }
+  
+  .loading-image {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    height: 150px !important;
+  }
+  .loading-image img {
+    max-height: 100px !important;
+  }
+  
+  .logo {
+    display: flex;
+    justify-content: center;
+    font-size: 35px !important;
+    margin-bottom: 30px !important;
+    margin-top: 10px !important;
+  }
+  
+  .logo-text {
+    margin-left: 10px !important;
+    display: flex !important;
+  }
+  
+  .logo-img {
+    height: 88px !important;
+  }
+  
+  .already-account {
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .signup-fields {
+    button {
+      margin-top: 0px !important;
+    }
+  
+    .login-field {
+      margin-top: 15px !important;
+    }
+  }
+  
+  .anticon-comment svg {
+    color: #e0dffcc9 !important;
+  }
+  
+  .logo-text-second {
+    color: var(--own-msg-color) !important;
+  }
+  
+  .login-field {
+    background-color: rgba(0, 0, 0, 0) !important;
+    border-color: var(--border-color) !important;
+    border-style: solid !important;
+    border-width: 0 0 1px 0 !important;
+    padding: 10px !important;
+    display: flex !important;
+    flex-direction: row !important;
+  
+    label {
+      display: flex !important;
+      flex-direction: row !important;
+    }
+  }
+  
+  .login-fields {
+    margin-top: 10px !important;
+    margin-bottom: 35px !important;
+  
+    .error {
+      color: rgb(250, 95, 95) !important;
+      margin-left: 10px !important;
+      margin-top: 10px !important;
+    }
+  }
+  
+  .google {
+    padding: 10px !important;
+    margin-bottom: 5px !important;
+    border-width: 0 !important;
+    border-style: solid !important;
+    border-radius: 15px !important;
+    color: rgba(255, 255, 255, 0.801) !important;
+  
+    svg {
+      font-size: 18px !important;
+      color: white !important;
+    }
+  
+    &:hover {
+      cursor: pointer;
+      border-width: 0 0 1px 0 !important;
+      border-radius: 0 !important;
+      border-color: var(--own-msg-color) !important;
+      margin-bottom: 4px !important;
+    }
+  }
+  
+  .login-field input {
+    background-color: rgba(0, 0, 0, 0) !important;
+    border-color: var(--border-color) !important;
+    border-style: solid !important;
+    border-width: 0 !important;
+    color: var(--loginform-color) !important;
+    margin-left: 10px !important;
+    font-size: 16px !important;
+  }
+  
+  .social-login {
+    width: 100% !important;
+    margin-top: 10px !important;
+    margin-bottom: 0px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+  }
+  
+  .signup-text {
+    color: #a5a2f8 !important;
+    cursor: pointer;
+  
+    &:hover {
+      color: #b7b5f3 !important;
+    }
+  }
+  
+  .social-media-header {
+    display: flex !important;
+    flex-direction: row !important;
+    margin-top: 10px !important;
+    color: white !important;
+  
+    hr {
+      width: 50px !important;
+      padding: 0 !important;
+      height: 1px !important;
+      border-width: 0 0 1px 0 !important;
+      border-color: var(--own-msg-color) !important;
+    }
+  }
+  

@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { ChatEngineContext } from "react-chat-engine";
 import _ from "lodash";
-import { DeleteOutlined } from "@ant-design/icons";
 import empty from "../../../images/empty.png";
 import { Avatar } from 'react-chat-engine'
 
@@ -27,6 +26,7 @@ export const ChatCard = (props) => {
             if (conn.userName === chat_person.person.username) {
                 readLastMessage = chat.last_message.id === chat_person.last_read;
             }
+            return ""
         });
         return readLastMessage;
     }
@@ -50,9 +50,9 @@ export const ChatCard = (props) => {
     }
     const isToday = (someDate) => {
         const today = new Date()
-        return someDate.getDate() == today.getDate() &&
-            someDate.getMonth() == today.getMonth() &&
-            someDate.getFullYear() == today.getFullYear()
+        return someDate.getDate() === today.getDate() &&
+            someDate.getMonth() === today.getMonth() &&
+            someDate.getFullYear() === today.getFullYear()
     }
     function getDateTime(date) {
         if (!date) return ''
@@ -112,6 +112,7 @@ export const ChatCard = (props) => {
                         src={empty}
                         className="chat-card-avatar"
                         style={{ borderRadius: "50%", width: "40px" }}
+                        alt=""
                     />
 
                 </div>

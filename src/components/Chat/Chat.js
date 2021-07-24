@@ -25,7 +25,6 @@ export const Chat = () => {
 
   useEffect(() => {
     // This hook creates new Chat Engine account if there is none
-
     const data = {
       username: convertedName,
       secret: userObject.uid,
@@ -97,8 +96,6 @@ export const Chat = () => {
       ) : (
         <div className="loading-image main-loader"><img src={loadingAnimation} alt="" /></div>
       )}
-
-
     </div>
   );
 };
