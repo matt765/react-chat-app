@@ -463,6 +463,11 @@ img {
   .auth-link-container {
     padding-left: 20px !important;
   }
+  .login-buttons {
+    display: flex !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+  }
   .auth-form button {
     width: 90% !important;
     margin-left: auto !important;
