@@ -1,4 +1,4 @@
-![alt text](https://github.com/matt765/react-chat-app/blob/master/src/images/chatlogo.png) ## ChatApp
+## ChatApp
 
 Fully functional, responsive chat app, created in React. 
 
@@ -11,7 +11,7 @@ Fully functional, responsive chat app, created in React.
 
 There is a limit for new accounts and propably it will be reached soon. 
 You can login to sample account using dedicated button on login page or using those credentials:
-John Doe / password123
+**John Doe / password123**
 
 
 
