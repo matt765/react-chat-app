@@ -101,7 +101,7 @@ const Message = props => {
 
     const borderRadius = `1.3em ${topRightRadius} ${bottomRightRadius} 1.3em`
     const paddingBottom = !nextMessage || nextMessage.sender_username !== message.sender_username ? '12px' : '2px'
-
+    console.log(message)
     return (
         <div
             className='ce-message-row ce-my-message'
