@@ -31,8 +31,11 @@ const Body = props => {
     text = text.replaceAll(/ass/ig, "****")
     text = text.replaceAll(/slut/ig, "****")
     text = text.replaceAll(/suck/ig, "****")
-
-
+    text = text.replaceAll(/bitch/ig, "****")
+    text = text.replaceAll(/penis/ig, "****")
+    text = text.replaceAll(/hanime/ig, "****")
+    text = text.replaceAll(/cunt/ig, "****")
+    text = text.replaceAll(/dump/ig, "****")
 
     return (
         <div className='ce_message' dangerouslySetInnerHTML={{ __html: text }} />
