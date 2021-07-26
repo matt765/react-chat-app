@@ -60,7 +60,7 @@ const NewChatForm = (props) => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          if (conn.userName === "micz1111") {
+          if (conn.userName === "john%20doe") {
             alert("Adding conversations is disabled on sample account, sorry!");
             return
           }
