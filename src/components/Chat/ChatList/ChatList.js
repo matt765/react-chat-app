@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 
 import { ChatEngineContext, getLatestChats } from 'react-chat-engine'
 import { ChatProfile } from "./ChatProfile";
-import { CloseOutlined, BgColorsOutlined, UserOutlined, DeleteOutlined, LogoutOutlined } from "@ant-design/icons";
+import { GithubOutlined, CloseOutlined, BgColorsOutlined, UserOutlined, DeleteOutlined, LogoutOutlined } from "@ant-design/icons";
 import { fb } from "service";
 import _ from 'lodash'
 import chatLogo from "../../../images/chatlogo.png";
@@ -218,6 +218,10 @@ const ChatList = props => {
                                 setLogoSource(chatLogo)
                             }
                         }} />
+                    </div>
+                    <div className="chat-bar-option">
+                    
+                    <a href="https://github.com/matt765/react-chat-app" target="_blank"><GithubOutlined /></a>
                     </div>
                     <div className="chat-bar-option">
                         <DeleteOutlined onClick={() => {
