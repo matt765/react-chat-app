@@ -51,7 +51,8 @@ export const UserStatus = (props) => {
         :
         <>
           <div className="user-status">
-            {/*currentStatus ? currentStatus : ""*/}
+            {/* Anti-spam to make demo account possible
+            currentStatus ? currentStatus : "" */}
             {currentStatus ? "sample status" : ""} </div>
         </>}
       {!editing ?

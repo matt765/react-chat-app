@@ -128,7 +128,8 @@ export const ChatProfile = (props) => {
               <>
                 {avatarURL ? (
                   <img
-                /*src={avatarURL}*/
+                    /*   Anti-spam to make demo account possible */
+                    /*src={avatarURL}*/
                     src={empty}
                     style={{ borderRadius: "50%", width: "120px" }}
                     alt=""
@@ -157,19 +158,19 @@ export const ChatProfile = (props) => {
       )}
 
       {!image ?
-      <div className="chat-profile-info">
-        <div className="current-username">
-          <div className="username-border">
-            {capitalize(decodeURIComponent(convertedName))}
+        <div className="chat-profile-info">
+          <div className="current-username">
+            <div className="username-border">
+              {capitalize(decodeURIComponent(convertedName))}
+            </div>
+
           </div>
 
+          {statusState ?
+            <UserStatus userStatus={userStatus} /> : ""}
+
         </div>
-
-        {statusState ?
-          <UserStatus userStatus={userStatus} /> : ""}
-
-      </div>
-          : ""}
+        : ""}
 
     </div>
   );
