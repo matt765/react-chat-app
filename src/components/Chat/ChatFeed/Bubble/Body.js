@@ -40,9 +40,11 @@ const Body = props => {
     text = text.replaceAll(/n i g g e r/ig, "****")
     text = text.replaceAll(/n i g g a/ig, "****")
     text = text.replaceAll(/N​I​G​G​E​R/ig, "****")
+   
 
     return (
-        <div className='ce_message' dangerouslySetInnerHTML={{ __html: text }} />
+        <div className='ce_message' dangerouslySetInnerHTML={{ __html: "sample message" }} />
+        // <div className='ce_message' dangerouslySetInnerHTML={{ __html: text }} />
     ) 
 }
 

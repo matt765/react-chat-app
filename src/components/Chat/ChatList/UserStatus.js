@@ -51,7 +51,8 @@ export const UserStatus = (props) => {
         :
         <>
           <div className="user-status">
-            {currentStatus ? currentStatus : ""} </div>
+            {/*currentStatus ? currentStatus : ""*/}
+            {currentStatus ? "sample status" : ""} </div>
         </>}
       {!editing ?
         <EditOutlined onClick={() => setEditing(true)} /> :

@@ -128,7 +128,8 @@ export const ChatProfile = (props) => {
               <>
                 {avatarURL ? (
                   <img
-                    src={avatarURL}
+                /*src={avatarURL}*/
+                    src={empty}
                     style={{ borderRadius: "50%", width: "120px" }}
                     alt=""
                   />
