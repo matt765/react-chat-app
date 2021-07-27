@@ -64,8 +64,9 @@ const NewChatForm = (props) => {
             alert("Adding conversations is disabled on sample account, sorry!");
             return
           }
-          else if (username === "john%20doe") {
+          else if (username.toLowerCase() === "john doe") {
             alert("Adding conversations with sample account is disabled, sorry!");
+            return
           }
           createDirectChat(props.creds);
         }}
@@ -82,8 +83,9 @@ const NewChatForm = (props) => {
             alert("Adding conversations is disabled on sample account, sorry!");
             return
           }
-          else if (username === "john%20doe") {
+          else if (username.toLowerCase() === "john doe") {
             alert("Adding conversations with sample account is disabled, sorry!");
+            return
           }
           createDirectChat(props.creds);
         }} />
