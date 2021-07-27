@@ -80,6 +80,7 @@ const NewMessageForm = () => {
                   return
                 }
                 else {
+                 
                   handleSubmit.bind(this)
                 }
               }
@@ -99,6 +100,7 @@ const NewMessageForm = () => {
                   return
                 }
                 else {
+                 
                   handleSubmit.bind(this)
                 }
               }
