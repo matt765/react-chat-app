@@ -1,10 +1,11 @@
 import { EditProfile } from "./EditProfile";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useAuth } from "context/AuthContext.js";
 import { EditOutlined, CloseOutlined } from "@ant-design/icons";
+import { ChatEngineContext } from "react-chat-engine";
 
 export const UserStatus = (props) => {
-
+const { conn } = useContext(ChatEngineContext);
   const [userStatusAvailable, setUserStatusAvailable] = useState(false);
   const [editing, setEditing] = useState(false);
   const { userObject, convertedName } = useAuth();
@@ -53,7 +54,8 @@ export const UserStatus = (props) => {
           <div className="user-status">
             {/* Anti-spam to make demo account possible
             currentStatus ? currentStatus : "" */}
-            {currentStatus ? "sample status" : ""} </div>
+             {(conn.userName === "john%20doe") ? "sample status" : <>{currentStatus ? currentStatus : ""}</>   }  
+             </div>
         </>}
       {!editing ?
         <EditOutlined onClick={() => setEditing(true)} /> :

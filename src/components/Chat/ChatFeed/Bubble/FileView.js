@@ -10,7 +10,7 @@ const FileView = props => {
     const [hovered, setHovered] = useState(false)
     const { attachment } = props
     const style={ 
-        ...styles.fileView, 
+        ...styles.fileView,  
         ...{ 
             color: hovered ? '#1890ff' : '#434343',
             border: hovered ? '1px solid #1890ff' : '1px solid #434343',

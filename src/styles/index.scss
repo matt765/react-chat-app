@@ -301,6 +301,12 @@ img {
   }
 }
 @media only screen and (max-width: 700px) {
+  html, body {
+    overflow-x: hidden !important;
+  }
+  body {
+    position: relative !important;
+  }
   .chat-container > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
     max-width: none !important;
     width: auto !important;

@@ -1,10 +1,11 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect,  useContext } from "react";
 import { useAuth } from "context/AuthContext.js";
 import { Icon, IconGroup, Loader } from "semantic-ui-react";
 import { ChatAvatar } from "./ChatAvatar";
 import { UserStatus } from "./UserStatus";
 import empty from "../../../images/empty.png";
 import loadingAnimation from "../../../images/loading.svg";
+import { ChatEngineContext } from 'react-chat-engine'
 
 export const ChatProfile = (props) => {
   const { userObject, convertedName } = useAuth();
@@ -15,6 +16,7 @@ export const ChatProfile = (props) => {
   const [avatarState, setAvatarState] = useState(false);
   const [statusState, setStatusState] = useState(false);
   const [avatarVisibility, setAvatarVisibility] = useState(true);
+  const { conn } = useContext(ChatEngineContext)
 
   const capitalize = (str, lower = true) => {
     return (lower ? str.toLowerCase() : str).replace(
@@ -115,6 +117,10 @@ export const ChatProfile = (props) => {
         <div className="current-user-info">
           <IconGroup
             onClick={() => {
+              if (conn.userName === "john%20doe") {
+                  alert("Changing avatar is disabled on sample account, sorry!")
+                return null
+                }
               const input = inputRef.current;
               if (input) {
                 input.value = "";
@@ -128,9 +134,7 @@ export const ChatProfile = (props) => {
               <>
                 {avatarURL ? (
                   <img
-                    /*   Anti-spam to make demo account possible */
-                    /*src={avatarURL}*/
-                    src={empty}
+                    src={avatarURL}
                     style={{ borderRadius: "50%", width: "120px" }}
                     alt=""
                   />

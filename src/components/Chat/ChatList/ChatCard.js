@@ -133,9 +133,8 @@ export const ChatCard = (props) => {
                         style={styles.messageText}
                         className="ce-chat-subtitle-text ce-chat-subtitle-message"
                     >
-                        {/*  // Anti-spam to make demo account possible
-                        {lastMessage} */}
-                        sample message
+              {(conn.userName === "john%20doe") ? "Say Hello" : lastMessage   }                        
+                        
                     </div>
 
 

@@ -6,9 +6,7 @@ const Body = props => {
     text = text.replaceAll("<a ", `<a style="color: ${ props.myMessage ? 'white' : '#1890ff' };" `)
 
     return (
-        <div className='ce_message' dangerouslySetInnerHTML={{ __html: "sample message" }} />
-        // Anti-spam to make demo account possible
-        // <div className='ce_message' dangerouslySetInnerHTML={{ __html: text }} />
+        <div className='ce_message' dangerouslySetInnerHTML={{ __html: text }} />
     ) 
 }
 

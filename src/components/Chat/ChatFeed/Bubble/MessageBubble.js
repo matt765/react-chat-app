@@ -13,7 +13,7 @@ const Message = props => {
     if (!message || !chat) { return <div /> }
 
     if (!conn || conn === null) { return <div /> }
-
+    if (conn.userName === "john%20doe") return null
     return (
         <div className='ce-message-and-date'>
             {
