@@ -16,11 +16,8 @@ Fully functional, responsive chat app created in React.
 
 https://user-images.githubusercontent.com/63603595/126877482-82bf8d5d-4902-4228-8ab9-e617dbc26075.mp4
 
-There is a limit for new accounts and propably it will be reached soon. 
-You can login to sample account using dedicated button on login page or using those credentials:
+The limit for new accounts has been reached, you can login to sample account using dedicated button on login page or using those credentials:
 **John Doe / password123**
-
-
 
 
 
