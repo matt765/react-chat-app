@@ -111,13 +111,19 @@ export const Login = () => {
         <div className="social-login">
           <div
             className="google"
-            onClick={() => fb.auth.signInWithRedirect(googleProvider)}
+            /*onClick={() => fb.auth.signInWithRedirect(googleProvider)}*/
+            onClick={()  => {
+                alert("The limit for new accounts has been reached. Please use Sample Account")
+            }}
           >
             <GoogleOutlined /> Google
           </div>
           <div
             className="google"
-            onClick={() => fb.auth.signInWithRedirect(facebookProvider)}
+            /*onClick={() => fb.auth.signInWithRedirect(facebookProvider)}*/
+             onClick={()  => {
+                alert("The limit for new accounts has been reached. Please use Sample Account")
+            }}
           >
             <FacebookOutlined /> Facebook
           </div>

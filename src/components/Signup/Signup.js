@@ -17,6 +17,8 @@ export const Signup = () => {
     }
 
     const signup = ({ userName, password }, { setSubmitting }) => {
+        alert("The limit for new accounts has been reached. Please use Sample Account")
+        return null
         setLoading(true)
         //@chat.engine is added to login because of Firebase requiring email string
         fb.auth
@@ -81,7 +83,7 @@ export const Signup = () => {
 
                         {!loading ?
                             <button type="submit">
-                                Sign Up
+                                Sign Up (Disabled)
                             </button> : <div className="loading-image"><img src={loadingAnimation} alt="" /></div>}
 
 
